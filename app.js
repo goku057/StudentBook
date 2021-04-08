@@ -22,7 +22,7 @@ app.get("/test", (req, res)=>{
         pageTitle:req.path.split('/')[1]
     }
     if(typeof(dataa) == 'undefined'){
-    console.log("ggwp");
+    console.log("ggwp"); 
     }
     res.render("user/blogs", data);
 })
@@ -30,3 +30,6 @@ app.get("/test", (req, res)=>{
 app.use((req, res) =>{
     res.render("404");
 })
+
+
+// jim was here! wassupp polapains!! <3
