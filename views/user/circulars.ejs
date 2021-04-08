@@ -1,0 +1,87 @@
+<%- include("./partials-user/header.ejs") %> 
+
+<body class="org_body">
+
+    <!-- included main navigation bar-->
+    <%- include("./partials-user/navbarMain.ejs") %> 
+
+    <div id="myBtnContainer">
+        <button class="org_btn active" onclick="filterSelection('all')"> Show all</button>
+        <button class="org_btn" onclick="filterSelection('cars')"> It</button>
+        <button class="org_btn" onclick="filterSelection('animals')"> Agriculture</button>
+        <button class="org_btn" onclick="filterSelection('fruits')"> Law</button>
+        <button class="org_btn" onclick="filterSelection('colors')"> Industrial</button>
+    </div>
+
+
+    <div class="org_container">
+        <div class="org_filterDiv cars">BMW</div>
+        <div class="org_filterDiv colors fruits">Orange</div>
+        <div class="org_filterDiv cars">Volvo</div>
+        <div class="org_filterDiv colors">Red</div>
+        <div class="org_filterDiv cars animals">Mustang</div>
+        <div class="org_filterDiv colors">Blue</div>
+        <div class="org_filterDiv animals">Cat</div>
+        <div class="org_filterDiv animals">Dog</div>
+        <div class="org_filterDiv fruits">Melon</div>
+        <div class="org_filterDiv fruits animals">Kiwi</div>
+        <div class="org_filterDiv fruits">Banana</div>
+        <div class="org_filterDiv fruits">Lemon</div>
+        <div class="org_filterDiv animals">Cow</div>
+    </div>
+
+    <script>
+        filterSelection("all")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("org_filterDiv");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "org_show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "org_show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("org_btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

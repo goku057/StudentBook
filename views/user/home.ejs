@@ -1,0 +1,154 @@
+<%- include("./partials-user/header.ejs") %> 
+
+<body class="home_body">
+
+    <!-- included main navigation bar-->
+    <%- include("./partials-user/navbarMain.ejs") %> 
+
+
+    <div class="home_menu">
+        <p style="font-weight: bold; font-size: 20px;">User User</p>
+        <p>Researcher</p>
+        <br>
+
+        <p>You're logged in as Senior</p>
+        <p>Currently working under <br><strong>Softech.Org</strong></p>
+        <hr>
+        <p><b>Your Institute:</b>
+            <br> <strong>United International University</strong>
+            <p><a href="#Blogs">Blogs of Seniors</a></p>
+            <div style="text-align: left;">
+                <hr>
+                <p><b>Other Preffered Links -></b></p>
+                <p><a href="#Organizations">Preferable Organizations</a></p>
+                <p><a href="#Jobs">Preferable Jobs</a></p>
+
+        </p>
+        </div>
+    </div>
+
+    <div class="home_main1">
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="subject"><b>Share a Post</b></label><br><br>
+
+                        <button class="btn" style="padding: 12px 20px;margin: 1px;">Attach File</button>
+
+                    </div>
+                    <div class="col-75">
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px"></textarea>
+                    </div>
+                </div>
+                <button class="ui primary button" style="float: right;">
+                    Post
+                  </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="home_main">
+        <h2>Status</h2>
+        <div class="ui relaxed divided list">
+            <div class="item">
+                <i class="large github middle aligned icon"></i>
+                <div class="content">
+                    <a class="header">Status-1</a>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                        nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                    <div class="description">Updated 22 minutes ago</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="large github middle aligned icon"></i>
+                <div class="content">
+                    <a class="header">Status-2</a>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore
+                        eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</p>
+                    <div class="description">Updated 2 hours ago</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="large github middle aligned icon"></i>
+                <div class="content">
+                    <a class="header">Status-3</a>
+                    <p>Hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait sit amet,
+                        cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+                        commodo consequat.</p>
+                    <div class="description">Updated 6 hours ago</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="large github middle aligned icon"></i>
+                <div class="content">
+                    <a class="header">Status-4</a>
+                    <p>Ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                    <div class="description">Updated 1 day ago</div>
+                </div>
+            </div>
+            <div class="item">
+                <i class="large github middle aligned icon"></i>
+                <div class="content">
+                    <a class="header">Status-5</a>
+                    <p>Apsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl
+                        ut aliquip ex ea commodo consequat.</p>
+                    <div class="description">Updated 1 month ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home_menu2">
+        <h3>Top Posts</h3>
+        <div class="ui relaxed divided list">
+            <div class="item">
+
+                <div class="content">
+                    <p class="header" style="color: #000000;">
+                        1
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <a class="header">Name of post1</a>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="content">
+                    <p class="header" style="color: #000000;">
+                        2
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <a class="header">Name of post2</a>
+                    </p>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="content">
+                    <p class="header" style="color: #000000;">
+                        3
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <a class="header">Name of post3</a>
+                    </p>
+                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat./p>
+                </div>
+            </div>
+            <div class="item">
+
+                <div class="content">
+                    <p class="header" style="color: #000000;">
+                        4
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <a class="header">Name of post4</a>
+                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

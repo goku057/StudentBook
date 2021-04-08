@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+.circular_body,
+.dataset_body {
+    background-color: #d1d1d1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Center website */
+
+.circulars_main,
+.contact_main,
+.dataset_main,
+.portfolio_main {
+    max-width: 1000px;
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 13%;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+
+.circulars_row,
+.dataset_row,
+.portfolio_row {
+    margin: 8px -16px;
+}
+
+
+/* Add padding BETWEEN each column */
+
+.circulars_row,
+.circulars_row>.circulars_column,
+.dataset_row,
+.dataset_row>.dataset_column,
+.portfolio_row,
+.portfolio_row>.portfolio_column {
+    padding: 8px;
+}
+
+
+/* Create four equal columns that floats next to each other */
+
+.dataset_column,
+.portfolio_column {
+    float: left;
+    width: 25%;
+}
+
+
+/* Clear floats after rows */
+
+.circulars_row:after,
+.dataset_row:after,
+.portfolio_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Content */
+
+.circulars_content,
+.dataset_content,
+.portfolio_content {
+    background-color: white;
+    padding: 10px;
+}
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}

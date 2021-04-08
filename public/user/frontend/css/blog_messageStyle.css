@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/*blog section start*/
+
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+
+/* Header/Blog Title */
+
+.blogs_of_senior_header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+
+
+/* Create two unequal columns that floats next to each other */
+
+
+/* Left column */
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+}
+
+
+/* Right column */
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+
+/* Fake image */
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+
+/* Add a card effect for articles */
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Footer */
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 800px) {
+    .leftcolumn,
+    .rightcolumn {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+
+/* Message start*/
+
+
+/* Chat containers */
+
+.chat {
+    position: absolute;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    top: 15%;
+}
+
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+
+/* Darker chat container */
+
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
+
+
+/* Clear floats */
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* Style images */
+
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+
+/* Style the right image */
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+
+/* Style time text */
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+
+/* Style time text */
+
+.time-left {
+    float: left;
+    color: #999;
+}

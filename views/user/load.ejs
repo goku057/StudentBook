@@ -1,0 +1,36 @@
+<%- include("./partials-user/header.ejs") %> 
+
+<body onload="myFunction()" style="margin:0;">
+
+    <div id="loader">
+
+    </div>
+    <div id="logo">
+        <img src="../logo.png" alt="logo">
+        <p>StudentBook</p>
+    </div>
+
+
+
+    <script>
+        var blink = document.getElementById('logo');
+        setInterval(function() {
+            blink.style.opacity = (blink.style.opacity == 1 ? 0 : 1);
+        }, 1000);
+
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 4000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("logo").style.display = "none";
+            window.location.href = "home.html";
+        }
+    </script>
+
+</body>
+
+</html>
