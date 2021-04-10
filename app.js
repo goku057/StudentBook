@@ -33,13 +33,11 @@ app.use((req, res) =>{
 
 
 // habijabi
-jim-branch
 // kire ki khobor 
 // f means force
 // jim was again here for testing branch merging...
 //ezpz
 //arnob was here
 //again changing
-main
 // jim was again here with arnob
 // changing from arnob branch hehe jimjimjim
