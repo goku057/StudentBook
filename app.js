@@ -31,16 +31,3 @@ app.use((req, res) =>{
     res.render("404");
 })
 
-
-// habijabi
-// kire ki khobor 
-// f means force
-// jim was again here for testing branch merging...
-//ezpz
-//arnob was here
-//again changing
-// jim was again here with arnob
-// changing from confglicasfaf
-//fff
-//qwerqoiwulkasjflkasfj
-//aslkjflaksjflkasjflkasfjlaksfjalkfj aslkfj
