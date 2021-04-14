@@ -8,6 +8,7 @@ const userProfileRoutes = require("./routes/userProfileRoutes");
 //setting up view engine
 app.set("view engine", "ejs");
 
+//gg
 //setting middlewares
 app.use(express.static("./public"));
 
