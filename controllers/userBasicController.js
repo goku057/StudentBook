@@ -1,14 +1,20 @@
-home = (req, res) =>{
+//including modules
+const userBasicModel = require("../models/userBasicModel.js");
+
+home = async (req, res) =>{
     let title = "Home";
+    let userInfo = await userBasicModel.getUserInfo();
+    console.log(userInfo[0].user_name);
     data = {
-        pageTitle:title
+        pageTitle:title,
+        userInfo
     }
     res.render("user/home.ejs", data);
     
 }
 
 circulars = (req, res) =>{
-    let title = "Circular Posts"
+    let title = "Circular Posts";
     data = {
         pageTitle:title
     }
