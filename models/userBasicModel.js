@@ -20,11 +20,6 @@ const getUserInfo = async ()=>{
 }
 
 
-sayHi = () =>{
-    console.log("Hi");
-}
-
-
 module.exports = {
     getUserInfo,
     sayHi
