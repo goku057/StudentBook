@@ -21,6 +21,5 @@ const getUserInfo = async ()=>{
 
 
 module.exports = {
-    getUserInfo,
-    sayHi
+    getUserInfo
 }
