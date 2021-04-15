@@ -1,91 +1,92 @@
-<%- include("../partials-user/header.ejs") %> 
+<%- include("../partials-user/header.ejs") %>
 
-<body class="offjobs_body">
+    <body class="offjobs_body">
 
-    <!-- included main navigation bar-->
-    <%- include("../partials-user/navbarMain.ejs") %> 
-    <div class="offjobs_div1">
-        <%- include("../partials-user/navbarProfile.ejs") %> 
-        <h3 class="ui center aligned header">Offered Jobs</h3>
-        <hr class="new1">
-        <h2>23 posted jobs</h2>
-        <p>Most recent posted jobs can be viewed here:</p>
+        <!-- included main navigation bar-->
+        <%- include("../partials-user/navbarMain.ejs") %>
+            <%- include("../partials-user/navbarProfile.ejs") %>
+                <div class="offjobs_div1">
 
-        <div class="tab">
-            <button class="tablinks" onmouseover="openCity(event, 'London')">Dataset Collecting </button>
-            <button class="tablinks" onmouseover="openCity(event, 'Paris')">Data entry Workshop </button>
-            <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">Paid Internship in an IT firm</button>
-        </div>
+                    <h3 class="ui center aligned header">Offered Jobs</h3>
+                    <hr class="new1">
+                    <h2>23 posted jobs</h2>
+                    <p>Most recent posted jobs can be viewed here:</p>
 
-        <div id="London" class="offjobs_tabcontent">
-            <h3>Tech.init_Research Lab</h3>
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <i class="large github middle aligned icon"></i>
-                    <div class="content">
-                        <a class="header">Needed Dataset Collector</a>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-                        <div class="description">Updated 40 minutes ago</div>
+                    <div class="tab">
+                        <button class="tablinks" onmouseover="openCity(event, 'London')">Dataset Collecting </button>
+                        <button class="tablinks" onmouseover="openCity(event, 'Paris')">Data entry Workshop </button>
+                        <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">Paid Internship in an IT firm</button>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div id="Paris" class="offjobs_tabcontent">
-            <h3>Service Engine BPO</h3>
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <i class="large github middle aligned icon"></i>
-                    <div class="content">
-                        <a class="header">Experinced People needed for Data Entry</a>
-                        <p>Ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-                        <div class="description">Updated 6 hours ago</div>
+                    <div id="London" class="offjobs_tabcontent">
+                        <h3>Tech.init_Research Lab</h3>
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="large github middle aligned icon"></i>
+                                <div class="content">
+                                    <a class="header">Needed Dataset Collector</a>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                                    <div class="description">Updated 40 minutes ago</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <div id="Tokyo" class="offjobs_tabcontent">
-            <h3>Globe Tech. IT</h3>
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <i class="large github middle aligned icon"></i>
-                    <div class="content">
-                        <a class="header">We are hiring for paid Internship</a>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
-                            augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                            nostrud exerci tation ullamcorper suscipit</p>
-                        <div class="description">Updated 3 days ago</div>
+                    <div id="Paris" class="offjobs_tabcontent">
+                        <h3>Service Engine BPO</h3>
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="large github middle aligned icon"></i>
+                                <div class="content">
+                                    <a class="header">Experinced People needed for Data Entry</a>
+                                    <p>Ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                                    <div class="description">Updated 6 hours ago</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div id="Tokyo" class="offjobs_tabcontent">
+                        <h3>Globe Tech. IT</h3>
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="large github middle aligned icon"></i>
+                                <div class="content">
+                                    <a class="header">We are hiring for paid Internship</a>
+                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+                                        delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+                                        ad minim veniam, quis nostrud exerci tation ullamcorper suscipit</p>
+                                    <div class="description">Updated 3 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="offjobs_clearfix"></div>
                 </div>
-            </div>
-        </div>
 
-        <div class="offjobs_clearfix"></div>
-    </div>
+                <div class="offjobs_div3">
+                    <p>Researcher</p>
+                </div>
+                <div class="offjobs_div4">
+                    <p>Hello</p>
+                </div>
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("offjobs_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                </script>
+    </body>
 
-    <div class="offjobs_div3">
-        <p>Researcher</p>
-    </div>
-    <div class="offjobs_div4">
-        <p>Hello</p>
-    </div>
-    <script>
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("offjobs_tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
-</body>
-
-</html>
+    </html>

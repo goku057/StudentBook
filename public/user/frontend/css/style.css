@@ -93,7 +93,7 @@
 .resume_div1 {
     position: absolute;
     padding: 2px 0;
-    top: 10%;
+    top: 20%;
     left: 29%;
     width: 45%;
 }
@@ -105,7 +105,6 @@ hr.new1 {
 .topnav1 {
     overflow: hidden;
     background-color: #333;
-    width: 950px;
     height: 55px;
     float: top;
     font-weight: bold;
