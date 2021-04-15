@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<% const stylePath = "/user/frontend/"%> 
+<% const stylePath = "/user/frontend/"%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><% if(typeof(data) == 'undefined'){%>
-        <%= "Page tittle missing" %> 
-        <% } else{ %><%= data.pageTitle %> <% } %> </title>
-    <link rel="stylesheet" href="<%= stylePath %>css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<%= stylePath %>css/semantic2.css">
-    <link rel="stylesheet" href="<%= stylePath %>css/homeStyle.css">
-    <link rel="stylesheet" href="<%= stylePath %>css/style2.css">
-    <link rel="stylesheet" href="<%= stylePath %>css/portstyle.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            <% if(typeof(data) == 'undefined'){%>
+                <%= "Page tittle missing" %>
+                    <% } else{ %>
+                        <%= data.pageTitle %>
+                            <% } %>
+        </title>
+        <link rel="stylesheet" href="<%= stylePath %>css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<%= stylePath %>css/semantic2.css">
+        <link rel="stylesheet" href="<%= stylePath %>css/homeStyle.css">
+        <link rel="stylesheet" href="<%= stylePath %>css/style2.css">
+        <link rel="stylesheet" href="<%= stylePath %>css/portstyle.css">
+        <link rel="stylesheet" href="<%= stylePath %>css/project.css">
+    </head>

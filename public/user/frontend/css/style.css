@@ -90,12 +90,20 @@
 .offjobs_div1,
 .portfolio_div1,
 .prevBlogs_div1,
-.resume_div1 {
+.resume_div1,
+.Blogs_div1 {
     position: absolute;
     padding: 2px 0;
     top: 20%;
     left: 29%;
     width: 45%;
+}
+
+.offjobs_div1 {
+    top: 25%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
 }
 
 hr.new1 {
@@ -146,7 +154,8 @@ hr.new1 {
 .about_pic_info_div4,
 .offjobs_div4,
 .prevBlogs_div3,
-.prevBlogs_div4 {
+.prevBlogs_div4,
+.Blogs_div3 {
     position: absolute;
     padding: 0 0;
     font-weight: bold;
@@ -157,6 +166,10 @@ hr.new1 {
     color: rgb(5, 5, 5);
     /* background-color: #ffffff; */
     font-family: 'Times New Roman', Times, serif;
+}
+
+.Blogs_div3 {
+    text-align: left;
 }
 
 .about_pic_info_div4,
@@ -319,3 +332,31 @@ input[type=submit]:hover {
 
 
 /*End of Contact*/
+
+
+/*starting          blogsofsenior*/
+
+.blogsofsenior_div1 {
+    position: absolute;
+    padding: 2px 0;
+    top: 20%;
+    left: 29%;
+    width: 45%;
+}
+
+.blogsofsenior_div3 {
+    position: absolute;
+    padding: 0 0;
+    font-weight: bold;
+    text-align: center;
+    top: 20%;
+    left: 3%;
+    height: 50vh;
+    color: rgb(5, 5, 5);
+    /* background-color: #ffffff; */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.blogsofsenior_div3 {
+    text-align: left;
+}

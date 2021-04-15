@@ -7,17 +7,31 @@
             <%- include("../partials-user/navbarProfile.ejs") %>
                 <div class="offjobs_div1">
 
-                    <h3 class="ui center aligned header">Offered Jobs</h3>
-                    <hr class="new1">
-                    <h2>23 posted jobs</h2>
-                    <p>Most recent posted jobs can be viewed here:</p>
+
 
                     <div class="tab">
-                        <button class="tablinks" onmouseover="openCity(event, 'London')">Dataset Collecting </button>
-                        <button class="tablinks" onmouseover="openCity(event, 'Paris')">Data entry Workshop </button>
-                        <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">Paid Internship in an IT firm</button>
+                        <button class="tablinks" onclick="openCity(event, 'Null')" id="defaultOpen">All Types</button>
+                        <button class="tablinks" onclick="openCity(event, 'London')">Dataset Collecting </button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Data entry Workshop </button>
+                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Paid Internship </button>
+
                     </div>
 
+
+
+                    <div id="Null" class="offjobs_tabcontent">
+
+                        <div class="ui relaxed divided list">
+                            <div class="item">
+                                <i class="large github middle aligned icon"></i>
+                                <div class="content">
+                                    <a class="header">All</a>
+                                    <p>All types</p>
+                                    <div class="description">None</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div id="London" class="offjobs_tabcontent">
                         <h3>Tech.init_Research Lab</h3>
                         <div class="ui relaxed divided list">
@@ -66,12 +80,8 @@
                     <div class="offjobs_clearfix"></div>
                 </div>
 
-                <div class="offjobs_div3">
-                    <p>Researcher</p>
-                </div>
-                <div class="offjobs_div4">
-                    <p>Hello</p>
-                </div>
+
+
                 <script>
                     function openCity(evt, cityName) {
                         var i, tabcontent, tablinks;
@@ -86,6 +96,7 @@
                         document.getElementById(cityName).style.display = "block";
                         evt.currentTarget.className += " active";
                     }
+                    document.getElementById("defaultOpen").click();
                 </script>
     </body>
 
