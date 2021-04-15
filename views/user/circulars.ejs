@@ -1,87 +1,91 @@
-<%- include("./partials-user/header.ejs") %> 
+<%- include("./partials-user/header.ejs") %>
 
-<body class="org_body">
+    <body class="org_body">
 
-    <!-- included main navigation bar-->
-    <%- include("./partials-user/navbarMain.ejs") %> 
-
-    <div id="myBtnContainer">
-        <button class="org_btn active" onclick="filterSelection('all')"> Show all</button>
-        <button class="org_btn" onclick="filterSelection('cars')"> It</button>
-        <button class="org_btn" onclick="filterSelection('animals')"> Agriculture</button>
-        <button class="org_btn" onclick="filterSelection('fruits')"> Law</button>
-        <button class="org_btn" onclick="filterSelection('colors')"> Industrial</button>
-    </div>
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
 
 
-    <div class="org_container">
-        <div class="org_filterDiv cars">BMW</div>
-        <div class="org_filterDiv colors fruits">Orange</div>
-        <div class="org_filterDiv cars">Volvo</div>
-        <div class="org_filterDiv colors">Red</div>
-        <div class="org_filterDiv cars animals">Mustang</div>
-        <div class="org_filterDiv colors">Blue</div>
-        <div class="org_filterDiv animals">Cat</div>
-        <div class="org_filterDiv animals">Dog</div>
-        <div class="org_filterDiv fruits">Melon</div>
-        <div class="org_filterDiv fruits animals">Kiwi</div>
-        <div class="org_filterDiv fruits">Banana</div>
-        <div class="org_filterDiv fruits">Lemon</div>
-        <div class="org_filterDiv animals">Cow</div>
-    </div>
+            <div class="org_row">
 
-    <script>
-        filterSelection("all")
+                <div class="org_tab">
+                    <button class="tablinks" onclick="openCity(event, 'Toggle')" id="defaultOpen">All</button>
+                    <button class="tablinks" onclick="openCity(event, 'Status')">IT</button>
+                    <button class="tablinks" onclick="openCity(event, 'Personal_Posts')">Industrial</button>
+                    <button class="tablinks" onclick="openCity(event, 'Organizational_Posts')">Accounting</button>
 
-        function filterSelection(c) {
-            var x, i;
-            x = document.getElementsByClassName("org_filterDiv");
-            if (c == "all") c = "";
-            for (i = 0; i < x.length; i++) {
-                w3RemoveClass(x[i], "org_show");
-                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "org_show");
-            }
-        }
+                </div>
 
-        function w3AddClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                if (arr1.indexOf(arr2[i]) == -1) {
-                    element.className += " " + arr2[i];
-                }
-            }
-        }
-
-        function w3RemoveClass(element, name) {
-            var i, arr1, arr2;
-            arr1 = element.className.split(" ");
-            arr2 = name.split(" ");
-            for (i = 0; i < arr2.length; i++) {
-                while (arr1.indexOf(arr2[i]) > -1) {
-                    arr1.splice(arr1.indexOf(arr2[i]), 1);
-                }
-            }
-            element.className = arr1.join(" ");
-        }
-
-        // Add active class to the current button (highlight it)
-        var btnContainer = document.getElementById("myBtnContainer");
-        var btns = btnContainer.getElementsByClassName("org_btn");
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function() {
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
-        }
-    </script>
+                <div id="Toggle" class="org_tabcontent">
 
 
 
 
 
-</body>
+                    <div class="org_main">
 
-</html>
+                        <h2>Given Circulars</h2>
+                        <hr class="new1">
+
+                        <h4>26 Job Vacancies available right now from your previously given circulars</h4>
+                        <p>Check Here Below.</p>
+
+                        <div class="circulars_row">
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                                lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+                                dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                <div class="item">
+                                    <i class="large github middle aligned icon"></i>
+                                    <div class="circulars_content">
+                                        <a class="header">Circular 1</a>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                                            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                                        <div class="description">Updated 22 mins ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Status" class="org_tabcontent">
+
+                    </div>
+
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
+                </div>
+
+                <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("org_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script>
+
+    </body>
+
+    </html>
