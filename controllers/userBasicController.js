@@ -1,9 +1,11 @@
 //including modules
 const userBasicModel = require("../models/userBasicModel.js");
+//user id
+const id = 1;
 
 home = async(req, res) => {
     let title = "Home";
-    let userInfo = await userBasicModel.getUserInfo();
+    let userInfo = await userBasicModel.getUserInfo(id);
     // console.log(userInfo[0].user_name);
     data = {
         pageTitle: title,

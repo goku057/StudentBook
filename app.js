@@ -2,14 +2,17 @@
 const express = require("express");
 const app = express();
 
-//setting up routes
-const userBasicRoutes = require("./routes/userBasicRoutes");
-const userProfileRoutes = require("./routes/userProfileRoutes");
 //setting up view engine
 app.set("view engine", "ejs");
 
 //setting middlewares
 app.use(express.static("./public"));
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+//setting up routes
+const userBasicRoutes = require("./routes/userBasicRoutes");
+const userProfileRoutes = require("./routes/userProfileRoutes");
 
 //firing routes
 app.use(userBasicRoutes);
@@ -17,16 +20,31 @@ app.use(userProfileRoutes)
 //listening to port
 app.listen(3000);
 
+
+
+//testing area
 app.get("/test", (req, res)=>{
+    console.log(req.query);
     data = {
-        pageTitle:req.path.split('/')[1]
+        pageTitle:req.path.split('/')[1],
+        success:true
     }
-    if(typeof(dataa) == 'undefined'){
-    console.log("ggwp"); 
+    res.render("index", data);
+})
+app.post("/test", (req, res) =>{
+    console.log(req.body.name);
+    data = {
+        pageTitle:req.path.split('/')[1],
+        success:false
     }
-    res.render("user/blogs", data);
+    if (req.body.name != "" && req.body.name != undefined){
+        data.name = req.body.name;
+        data.success = true;
+    }
+    res.render("index");
 })
 
+//Redirecting to error page
 app.use((req, res) =>{
     res.render("404");
 })

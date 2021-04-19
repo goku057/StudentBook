@@ -11,11 +11,11 @@ const db = mysql.createPool({
 //binding database for using async and await
 const query = util.promisify(db.query).bind(db);
 
-const getUserInfo = async() => {
-    let id = 1;
+const getUserInfo = async(id) => {
     let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = " + id;
     console.log("wrwaksfa");
-    let result = await query(sqlCommand);
+    let result = [];
+    result.push( await query(sqlCommand));
     return result;
 }
 
