@@ -11,80 +11,18 @@
                 <h3 class="ui center aligned header">Posts</h3>
                 <hr class="new1">
                 <div class="ui relaxed divided list">
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-1</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-                            <div class="description">Updated 22 mins ago</div>
+                    <%  for(let i = 0; i < data.posts.length; i++){ %> 
+                        <div class="item">
+                            <i class="large github middle aligned icon"></i>
+                            <div class="content">
+                                <a href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>" class="header"><%= data.posts[i].title %> </a></br>
+                                <p><%= data.posts[i].body.slice(0, 157) %>... <a  href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>">more...</a></p>
+                                <div class="description">Posted By: <%= data.posts[i].user_name %> </div>
+                                <div class="description">Posted: <%= data.posts[i].post_time %> </div>
+                            </div>
+                            <br>
                         </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-2</a>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                                dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</p>
-                            <div class="description">Updated 2 days ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-3</a>
-                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
-                                augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-                                quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                            <div class="description">Updated 1 month ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-4</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-                            <div class="description">Updated 22 minutes ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-5</a>
-                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                                dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</p>
-                            <div class="description">Updated 2 hours ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-6</a>
-                            <p>Hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait sit
-                                amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                                aliquip ex ea commodo consequat.</p>
-                            <div class="description">Updated 6 hours ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-7</a>
-                            <p>Ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-                                consequat.</p>
-                            <div class="description">Updated 1 day ago</div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <i class="large github middle aligned icon"></i>
-                        <div class="content">
-                            <a class="header">Status-8</a>
-                            <p>Apsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                                nisl ut aliquip ex ea commodo consequat.</p>
-                            <div class="description">Updated 1 month ago</div>
-                        </div>
-                    </div>
+                        <% } %> 
                 </div>
             </div>
             <div class="Blogs_div3" style="justify-items: left;">

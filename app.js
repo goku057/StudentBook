@@ -30,10 +30,12 @@ app.get("/test", (req, res)=>{
         success:true
     }
     res.render("index", data);
-})
+});
+
+
 app.post("/test", (req, res) =>{
     console.log(req.body.name);
-    data = {
+    const data = {
         pageTitle:req.path.split('/')[1],
         success:false
     }
@@ -41,7 +43,7 @@ app.post("/test", (req, res) =>{
         data.name = req.body.name;
         data.success = true;
     }
-    res.render("index");
+    res.render("index", {data});
 })
 
 //Redirecting to error page
