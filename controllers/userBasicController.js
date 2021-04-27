@@ -1,60 +1,124 @@
 //including modules
+const dateFormat = require("dateformat");
 const userBasicModel = require("../models/userBasicModel.js");
 //user id
-const id = 1;
+const id = 8;
 
 home = async(req, res) => {
+    
     let title = "Home";
-    let userInfo = await userBasicModel.getUserInfo(id);
-    // console.log(userInfo[0].user_name);
-    data = {
+    let user = await userBasicModel.getUserInfo(id);
+    // console.log(userLoginInfo[0].user_id);
+    let posts = await userBasicModel.getHomePosts(id);
+    const data = {
         pageTitle: title,
-        userInfo
+        user,
+        posts
     }
-    res.render("user/home.ejs", data);
+    res.render("user/home.ejs", {data});
 
 }
 
-circulars = (req, res) => {
+circulars = async (req, res) => {
+    let val = req.query;
+    if(Object.keys(val).length == 0){
+        val.cat = 0;
+    }
+    if(val.cat == undefined){
+        val.cat = 0;
+    }
+
+    let circularCatCount = await userBasicModel.getJobCatCount();
+    circularCatCount = circularCatCount[0].count;
+    
+    if(circularCatCount < val.cat){
+        val.cat = 0;
+    }
+    let jobCatValidation = await userBasicModel.getCircularValidation(val.cat);
+    if (jobCatValidation == false){
+        res.render("404");
+        return;
+    }
+
+    let circularCat = await userBasicModel.getCircularCat();
+    let job_circular_post = await userBasicModel.getCircularPosts(val.cat);
+    // console.log(circularCat);
+
     let title = "Circular Posts";
-    data = {
-        pageTitle: title
+    const data = {
+        pageTitle: title,
+        cat: circularCat,
+        circulars: job_circular_post,
+        activeCat:val.cat,
+        dateFormat
     }
-    res.render("user/circulars.ejs", data);
+    res.render("user/circulars.ejs", {data});
 
 }
 
-projects = (req, res) => {
-    let title = "Projects";
-    data = {
-        pageTitle: title
+contracts = async (req, res) => {
+
+    let val = req.query;
+    if(Object.keys(val).length == 0){
+        val.cat = 0;
     }
-    res.render("user/projects.ejs", data);
+    if(val.cat == undefined){
+        val.cat = 0;
+    }
+
+    let contractCatCount = await userBasicModel.getJobCatCount();
+    contractCatCount = contractCatCount[0].count;
+    
+    if(contractCatCount < val.cat){
+        val.cat = 0;
+    }
+
+    let jobCatValidation = await userBasicModel.getContractValidation(val.cat);
+    if (jobCatValidation == false){
+        res.render("404");
+        return;
+    }
+    let contractCat = await userBasicModel.getContractCat();
+    let job_post = await userBasicModel.getContractPosts(val.cat);
+
+    let title = "Contracts";
+    const data = {
+        pageTitle: title,
+        cat: contractCat,
+        contracts: job_post,
+        activeCat:val.cat,
+        dateFormat
+    }
+    res.render("user/contracts.ejs", {data});
 
 }
+
+
 msg = (req, res) => {
     let title = "Messages";
-    data = {
+    const data = {
         pageTitle: title
     }
-    res.render("user/message.ejs", data);
+    res.render("user/message.ejs", {data});
 
 }
 datasets = (req, res) => {
     let title = "Dataset";
-    data = {
+    const data = {
         pageTitle: title
     }
-    res.render("user/dataset.ejs", data);
+    res.render("user/dataset.ejs", {data});
 
 }
 
-blogs = (req, res) => {
+blogs = async (req, res) => {
     let title = "Blogs";
-    data = {
-        pageTitle: title
+    let posts = await userBasicModel.getHomePosts(id);
+    const data = {
+        pageTitle: title,
+        posts
     }
-    res.render("user/blogs.ejs", data);
+    res.render("user/blogs.ejs", {data});
 
 }
 
@@ -63,7 +127,7 @@ blogs = (req, res) => {
 module.exports = {
     home,
     circulars,
-    projects,
+    contracts,
     msg,
     datasets,
     blogs

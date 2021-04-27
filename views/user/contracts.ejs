@@ -1,0 +1,92 @@
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="org_body">
+
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+
+            <div class="org_row">
+
+                <div class="org_tab">
+                    <!-- <button class="tablinks" onclick="openCity(event, 'Toggle')" id="defaultOpen">All</button>
+                    <button class="tablinks" onclick="openCity(event, 'Status')">IT</button>
+                    <button class="tablinks" onclick="openCity(event, 'Personal_Posts')">Industrial</button>
+                    <button class="tablinks" onclick="openCity(event, 'Organizational_Posts')">Accounting</button> -->
+                    <a href="/organization"><button class="tablink <% if (data.activeCat == 0){%><%= "active"%><% } %>"> ALL</button></a>
+                    <% for(let i = 0; i < data.cat.length; i++){ %>
+                        <a href="/contracts?cat=<%= data.cat[i].type_id %> "><button class="tablink <% if (data.activeCat == data.cat[i].type_id){ %> <%= "active" %> <% } %>"> <%= data.cat[i].job_cat %> </button></a>
+                    <% } %>
+                </div>
+                
+                <div id="Toggle" class="org_tabcontent">
+
+
+
+
+
+                    <div class="org_main">
+
+                        <h2>Given Circulars</h2>
+                        <hr class="new1">
+                        <div class="circulars_row">
+                            
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                <% if(data.contracts.length == 0){ %> <h3>There are no posts to show</h3> <% }else{ %>
+                                <% for(let i = 0; i < data.contracts.length; i++){       %> 
+                                    <div class="item">
+                                        <i class="large github middle aligned icon"></i>
+                                        <div class="circulars_content">
+                                            <a class="header"><%= data.contracts[i].looking_for %> WANTED</a>
+                                            <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                                                suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p> -->
+                                                <div class="description">Posted By: <%=   data.contracts[i].user_name %></div>
+                                                <div class="description">Post Time: <%=   data.contracts[i].post_time %></div>
+                                        </div>
+                                    </div>
+                                <% } }%>  
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Status" class="org_tabcontent">
+
+                    </div>
+
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
+                </div>
+
+                <!-- <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("org_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script> -->
+
+    </body>
+
+    </html>
