@@ -3,8 +3,10 @@
     <a href="/profile/resume" <% if(data.pnavFocus == "resume"){ %> class="active1"<% } %>><i class="fa fa-fw fa-id-card"></i>RESUME</a>
     <a href="/profile/works" <% if(data.pnavFocus == "works"){ %> class="active1"<% } %>><i class="fa fa-fw fa-address-book"></i>My Works</a>
     <a href="/profile/blogs" <% if(data.pnavFocus == "blogs"){ %> class="active1"<% } %>><i class="fa fa-fw fa-commenting-o"></i>My Blogs</a>
-    <a href="/profile/projects" <% if(data.pnavFocus == "projects"){ %> class="active1"<% } %>><i class="fa fa-fw fa-envelope-open-o"></i>My Given Projects</a>
+    <% if(data.user[0].user_category == 2){ %> 
+    <a href="/profile/contracts" <% if(data.pnavFocus == "contracts"){ %> class="active1"<% } %>><i class="fa fa-fw fa-envelope-open-o"></i>My Given Contracts</a>
     <a href="/profile/circulars" <% if(data.pnavFocus == "circulars"){ %> class="active1"<% } %>><i class="fa fa-fw fa-file"></i>MY Given Circulars</a>
+    <% } %> 
     <a href="/profile/contact" <% if(data.pnavFocus == "contact"){ %> class="active1"<% } %>><i class="fa fa-fw fa-envelope"></i>CONTACT</a>
     <!-- <a class="user" href="#user"><i class="fa fa-fw fa-user"></i>USER</a> -->
 

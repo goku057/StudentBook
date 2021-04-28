@@ -2,7 +2,7 @@
 const dateFormat = require("dateformat");
 const userBasicModel = require("../models/userBasicModel.js");
 //user id
-const id = 8;
+const id = 3;
 
 home = async(req, res) => {
     
@@ -102,10 +102,16 @@ msg = (req, res) => {
     res.render("user/message.ejs", {data});
 
 }
-datasets = (req, res) => {
+
+datasets = async (req, res) => {
+
+    let dataset = await userBasicModel.getDatasets();
+
+
     let title = "Dataset";
     const data = {
-        pageTitle: title
+        pageTitle: title,
+        dataset
     }
     res.render("user/dataset.ejs", {data});
 
