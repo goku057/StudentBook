@@ -7,57 +7,47 @@
             <%- include("../partials-user/navbarProfile.ejs") %>
 
                 <div class="about_div1">
-
-
-
                     <div style="padding-left:16px">
                         <br>
                         <h3 class="ui center aligned header">About Me</h3>
                         <hr class="new1">
                         <div class="ui three column grid container">
                             <div class="column">
-                                <div class="ui segment">Name: <br> <pre>User user</pre></div>
+                                <div class="ui segment">Name: <br> <pre><%= data.user[0].first_name + " " + data.user[0].last_name%> </pre></div>
                             </div>
                             <div class="column">
-                                <div class="ui segment">Birthday: <pre>19 October 1996</pre></div>
+                                <div class="ui segment">Birthday: <pre><%= data.dateFormat(data.user[0].dob, "mmmm dS, yyyy") %> </pre></div>
                             </div>
                             <div class="column">
-                                <div class="ui segment">Interested in: <br> <pre>Web Development</pre></div>
+                                <div class="ui segment">I call Myself: <br> <pre><%= data.user[0].interest %> </pre></div>
                             </div>
                             <div class="column">
-                                <div class="ui segment">Website: <br> <pre>www.tech.com/user</pre></div>
+                                <div class="ui segment">Website: <br> <pre><% if(data.socialLinks[0].website == null){ %>No website <% }else{ %><%= data.socialLinks[0].website %>  <% } %> </pre></div>
                             </div>
                             <div class="column">
-                                <div class="ui segment">Email: <br> <pre>user@hotmail.com</pre></div>
+                                <div class="ui segment">Email: <br> <pre><%= data.user[0].user_email %> </pre></div>
                             </div>
                             <div class="column">
-                                <div class="ui segment">Skype: <br> <pre>user@1996</pre></div>
+                                <div class="ui segment">Linkedin: <br> <pre><% if(data.socialLinks[0].linkedin == null){ %>No Linkedin <% }else{ %><%= data.socialLinks[0].linkedin %>  <% } %> </pre></div>
                             </div>
                         </div>
                     </div>
                     <hr class="new1">
                     <div class="divInside">
                         <br>
-                        <h4>I am a Web Designer</h4>
-                        <p style="color: navy;text-indent: 30px; ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
-                            qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-                        <p style="color: navy;text-indent: 30px; ">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut lao Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                            aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-                            consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</p>
+                        <h4>I am a successfull <%= data.user[0].interest %> </h4>
+                        <p style="color: navy;text-indent: 30px; "><% if(data.user[0].about_me == null){ %>You have not written anything about yourself <% }else{ %><%= data.user[0].about_me %>  <% } %> </p>
+                        
 
                     </div>
 
                 </div>
                 <div class="about_pic_div3">
-                    <img src="https://i.pinimg.com/originals/bc/b3/19/bcb319b817317a6416f9f726bc96747f.jpg" alt="about" width="300px" height="300px">
-                    <h3>User User</h3>
-                    <p>Researcher</p>
+                    <img src="<% if(data.user[0].user_img == null){ %>/user/images/default.jpg<% }else{ %><%= data.user[0].user_img %>  <% } %>" alt="about" width="300px" height="300px">
+                    <h3><%= data.user[0].user_name %> </h3>
+                    <p><%= data.user[0].name %></p>
                 </div>
-                <div class="about_pic_info_div4">
-                    <p>Hello</p>
-                </div>
+                
     </body>
 
     </html>

@@ -17,7 +17,7 @@ const getUserInfo = async(id) => {
     let result;
     // result.push( await query(sqlCommand));
     result = await query(sqlCommand);
-    console.log(result);
+    // console.log(result);
     return result;
 }
 
@@ -96,9 +96,9 @@ const getContractValidation = async (cat)=>{
 
 const getContractCat = async ()=>{
     let sqlCommand = "SELECT *  FROM `job_type_info` WHERE job_type = 'contract';";
-        let result;
-        result = await query(sqlCommand);
-        return result;
+    let result;
+    result = await query(sqlCommand);
+    return result;
 }
 
 const getContractPosts = async(cat) =>{
@@ -117,6 +117,12 @@ const getContractPosts = async(cat) =>{
     
 }
 
+const getDatasets = async () =>{
+    let sqlCommand = "SELECT di.`user_id`, `d_id`, `title`, `body`, `dataset`, `post_time`, user_name FROM `dataset_info` as di JOIN user_login_info as uli ON di.user_id = uli.user_id  WHERE 1;";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
 
 module.exports = {
     getUserInfo,
@@ -127,5 +133,6 @@ module.exports = {
     getCircularPosts,
     getContractValidation,
     getContractCat,
-    getContractPosts
+    getContractPosts,
+    getDatasets
 }

@@ -16,48 +16,17 @@
         <p>Pick your preferable datasets</p>
 
         <div class="dataset_row">
+            <% if(data.dataset.length == 0){ %> There are no posts to show 
+            <% } else{ for(let i = 0; i < data.dataset.length; i++){ %>
             <div class="dataset_column">
                 <div class="dataset_content" style="border-radius: 15px;">
-                    <img src="/w3images/mountains.jpg" alt="HR Analytics" style="width:100%; ">
-                    <h3>HR Analytics: Job Change of Data Scientists</h3>
-                    <p>Möbius · Updated 4 months ago Usability 10.0 · 295 KB 2 Tasks · 3 Files (CSV) 817
-                    </p>
+                    <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
+                    <a href="/dataset/post?uid=<%= data.dataset[i].user_id %>&pid=<%= data.dataset[i].d_id %> "><h3><%= data.dataset[i].title %> </h3></a>
+                    <p><%= data.dataset[i].body.slice(0, 57)%> <a href="/dataset/post?uid=<%= data.dataset[i].user_id %>&pid=<%= data.dataset[i].d_id %> ">...see more </a></p>
                 </div>
             </div>
-            <div class="dataset_column">
-                <div class="dataset_content" style="border-radius: 15px;">
-                    <img src="/w3images/lights.jpg" alt="Stroke Prediction" style="width:100%">
-                    <h3>Stroke Prediction Dataset</h3>
-                    <p>fedesoriano · Updated 2 months ago Usability 10.0 · 67 KB 1 Task · 1 File (CSV) 670
-                    </p>
-                </div>
-            </div>
-            <div class="dataset_column">
-                <div class="dataset_content" style="border-radius: 15px;">
-                    <img src="/w3images/nature.jpg" alt="Reddit Vaccine" style="width:100%">
-                    <h3>Reddit Vaccine Myths</h3>
-                    <p>
-                        Gabriel Preda · Updated 7 hours ago Usability 10.0 · 221 KB 1 Task · 1 File (CSV) 126
-
-                    </p>
-                </div>
-            </div>
-            <div class="dataset_column">
-                <div class="dataset_content" style="border-radius: 15px;">
-                    <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-                    <h3>Better prediction for diabetes</h3>
-                    <p>Alexey Kotlik · 1 Submission Thumbnail for dataset titled Metagenomics Metagenomics Alexey.
-                    </p>
-                </div>
-            </div>
+            <% }} %> 
             <!-- END GRID -->
-        </div>
-
-        <div class="dataset_content" style="border-radius: 15px;">
-            <img src="/w3images/p3.jpg" alt="Datasets" style="width:100%">
-            <h3>Some Other Datasets</h3>
-            <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-            <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
         </div>
 
         <!-- END MAIN -->

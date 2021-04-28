@@ -1,88 +1,130 @@
-about = (req, res) =>{
+//including modules
+const dateFormat = require("dateformat");
+const userProfileModel = require("../models/userProfileModel.js");
+//user id
+const id = 2;
+
+const about = async (req, res) =>{
     let title = "Profile";
     let navF = "about";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    let socialLinks = await userProfileModel.getUserSocialLinks(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat,
+        socialLinks
     }
-    res.render("user/profile/about.ejs", data);
+    res.render("user/profile/about.ejs", {data});
     
 }
 
-resume = (req, res) =>{
+const resume = async (req, res) =>{
     let title = "Profile";
     let navF = "resume";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    let contact = await userProfileModel.getUserContact(id);
+    let softSkills = await userProfileModel.getSoftSkills(id);
+    let hardSkills = await userProfileModel.getHardSkills(id);
+    let experience = await userProfileModel.getWorkExpInfo(id);
+    let edu = await userProfileModel.getEduInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat,
+        contact,
+        softSkills,
+        hardSkills,
+        experience,
+        edu
     }
-    res.render("user/profile/resume.ejs", data);
+    res.render("user/profile/resume.ejs", {data});
     
 }
 
-works = (req, res) =>{
+const works = async (req, res) =>{
     let title = "Profile";
     let navF = "works";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/works.ejs", data);
+    res.render("user/profile/works.ejs", {data});
     
 }
 
-blogs = (req, res) =>{
+const blogs = async (req, res) =>{
     let title = "Profile";
     let navF = "blogs";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/prevBlogs.ejs", data);
+    res.render("user/profile/prevBlogs.ejs", {data});
     
 }
 
-projects = (req, res) =>{
+const contracts = async (req, res) =>{
     let title = "Profile";
-    let navF = "projects";
-    data = {
+    let navF = "contracts";
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/myProjects.ejs", data);
+    res.render("user/profile/myProjects.ejs", {data});
     
 }
 
-circulars = (req, res) =>{
+const circulars = async (req, res) =>{
     let title = "Profile";
     let navF = "circulars";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/myCirculars.ejs", data);
+    res.render("user/profile/myCirculars.ejs", {data});
     
 }
 
-datasets = (req, res) =>{
+const datasets = async (req, res) =>{
     let title = "Profile";
     let navF = "datasets";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/dataset.ejs", data);
+    res.render("user/profile/dataset.ejs", {data});
     
 }
 
-contact = (req, res) =>{
+const contact = async (req, res) =>{
     let title = "Profile";
     let navF = "contact";
-    data = {
+    let user = await userProfileModel.getUserInfo(id);
+    const data = {
         pageTitle:title,
-        pnavFocus:navF
+        pnavFocus:navF,
+        user,
+        dateFormat
     }
-    res.render("user/profile/contact.ejs", data);
+    res.render("user/profile/contact.ejs", {data});
     
 }
 
@@ -91,7 +133,7 @@ module.exports = {
     resume,
     works,
     blogs,
-    projects,
+    contracts,
     circulars,
     datasets,
     contact
