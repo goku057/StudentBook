@@ -2,7 +2,7 @@
 const dateFormat = require("dateformat");
 const userProfileModel = require("../models/userProfileModel.js");
 //user id
-const id = 2;
+const id = 3;
 
 const about = async (req, res) =>{
     let title = "Profile";

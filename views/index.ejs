@@ -9,11 +9,12 @@
 
 <body>
     <h1>Hello StudentBook</h1>
-    <form action="/test" method="POST">
+    <form action="/test" method="POST" enctype="multipart/form-data">
+        <input type="file" name="img">
         <input type="text" name="name">
         <input type="submit" value="click">
     </form>
-
+    
     <h1><%  if(  typeof(data) != "undefined" && data.success == true){ %> <%= data.name %>  <% }else{ %> <%= "Nothing to show" %> <% } %>  </h1>
 </body>
 </html>
