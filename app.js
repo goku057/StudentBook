@@ -32,8 +32,9 @@ app.get("/test", (req, res)=>{
     res.render("index", data);
 });
 
+//const {upload} = require("./config/userMulter");
 
-app.post("/test", (req, res) =>{
+app.post("/test"/*, upload.single('img')*/ ,(req, res) =>{
     console.log(req.body.name);
     const data = {
         pageTitle:req.path.split('/')[1],

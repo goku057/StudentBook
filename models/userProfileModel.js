@@ -1,15 +1,5 @@
-//importing database connection
-const util = require("util");
-const mysql = require("mysql");
-const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "studentbook",
-    connectionLimit: 10
-});
-//binding database for using async and await
-const query = util.promisify(db.query).bind(db);
+//connecting database
+const {query} = require("../config/db");
 
 const getUserInfo = async (id) =>{
     let sqlCommand = "SELECT ui.`user_id`, `user_img`, `first_name`, `last_name`, `gender`, `dob`, `currency`, `interest`, `about_me`, `blog_count`, `portfolio_count`, `job_count`, `dataset_count`, `circular_count`, user_category, uci.name, user_name, user_email FROM `user_info` as ui JOIN user_login_info as uli ON ui.user_id = uli.user_id JOIN user_category_info as uci ON uli.user_category = uci.cat_id WHERE ui.user_id = " + id + ";";
