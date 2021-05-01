@@ -14,9 +14,9 @@
                     <button class="tablinks" onclick="openCity(event, 'Status')">IT</button>
                     <button class="tablinks" onclick="openCity(event, 'Personal_Posts')">Industrial</button>
                     <button class="tablinks" onclick="openCity(event, 'Organizational_Posts')">Accounting</button> -->
-                    <a href="/organization"><button class="tablink <% if (data.activeCat == 0){%><%= "active"%><% } %>"> ALL</button></a>
+                    <a href="/profile/circulars"><button class="tablink <% if (data.activeCat == 0){%><%= "active"%><% } %>"> ALL</button></a>
                     <% for(let i = 0; i < data.cat.length; i++){ %>
-                        <a href="/organization?cat=<%= data.cat[i].type_id %> "><button class="tablink <% if (data.activeCat == data.cat[i].type_id){ %> <%= "active" %> <% } %>"> <%= data.cat[i].job_cat %> </button></a>
+                        <a href="/profile/circulars?cat=<%= data.cat[i].type_id %> "><button class="tablink <% if (data.activeCat == data.cat[i].type_id){ %> <%= "active" %> <% } %>"> <%= data.cat[i].job_cat %> </button></a>
                     <% } %>
                 </div>
                 
