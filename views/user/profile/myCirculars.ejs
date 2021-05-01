@@ -7,61 +7,68 @@
             <%- include("../partials-user/navbarProfile.ejs") %>
 
 
-                <div class="circulars_main">
+            <div class="org_row">
 
-                    <h3>Given Circulars</h3>
-                    <hr class="new1">
+                <div class="org_tab">
+                    <!-- <button class="tablinks" onclick="openCity(event, 'Toggle')" id="defaultOpen">All</button>
+                    <button class="tablinks" onclick="openCity(event, 'Status')">IT</button>
+                    <button class="tablinks" onclick="openCity(event, 'Personal_Posts')">Industrial</button>
+                    <button class="tablinks" onclick="openCity(event, 'Organizational_Posts')">Accounting</button> -->
+                    <a href="/organization"><button class="tablink <% if (data.activeCat == 0){%><%= "active"%><% } %>"> ALL</button></a>
+                    <% for(let i = 0; i < data.cat.length; i++){ %>
+                        <a href="/organization?cat=<%= data.cat[i].type_id %> "><button class="tablink <% if (data.activeCat == data.cat[i].type_id){ %> <%= "active" %> <% } %>"> <%= data.cat[i].job_cat %> </button></a>
+                    <% } %>
+                </div>
+                
+                <div id="Toggle" class="org_tabcontent">
 
-                    <h4>26 Job Vacancies available right now from your previously given circulars</h4>
-                    <p>Check Here Below.</p>
 
-                    <div class="circulars_row">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
-                            qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-                            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                        <!-- END GRID -->
-                        <div class="ui relaxed divided list">
-                            <div class="item">
-                                <i class="large github middle aligned icon"></i>
-                                <div class="circulars_content">
-                                    <a class="header">Circular 1</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-                                    <div class="description">Updated 22 mins ago</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="large github middle aligned icon"></i>
-                                <div class="circulars_content">
-                                    <a class="header">Circular 2</a>
-                                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                        vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi</p>
-                                    <div class="description">Updated 2 days ago</div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <i class="large github middle aligned icon"></i>
-                                <div class="circulars_content">
-                                    <a class="header">Circular 3</a>
-                                    <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-                                        delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-                                        ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                    <div class="description">Updated 1 month ago</div>
-                                </div>
+
+
+
+                    <div class="org_main">
+
+                        <h2>Given Circulars</h2>
+                        <hr class="new1">
+                        <div class="circulars_row">
+                            
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                <% if(data.circulars.length == 0){ %> <h3>There are no posts to show</h3> <% }else{ %>
+                                <% for(let i = 0; i < data.circulars.length; i++){       %> 
+                                    <div class="item">
+                                        <i class="large github middle aligned icon"></i>
+                                        <div class="circulars_content">
+                                            <a class="header"><%= data.circulars[i].looking_for %> WANTED</a>
+                                            <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                                                suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p> -->
+                                                <div class="description">Posted By: <%=   data.circulars[i].user_name %></div>
+                                                <div class="description">Posted: <%=   data.circulars[i].post_time %></div>
+                                        </div>
+                                    </div>
+                                <% } }%>  
+                                
                             </div>
                         </div>
+
                     </div>
 
-                    <div class="circulars_content">
-                        <img src="/w3images/p3.jpg" alt="Circular" style="width:100%">
-                        <h3>Some Other Work</h3>
-                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                    <div id="Status" class="org_tabcontent">
+
                     </div>
 
-                    <!-- END MAIN -->
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
                 </div>
+
 
     </body>
 

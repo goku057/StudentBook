@@ -52,6 +52,40 @@ const getEduInfo = async(id) =>{
     return result;
 }
 
+const getUserWorks = async(id) =>{
+    let sqlCommand = "SELECT `user_id`, `p_id`, `image`, `title`, `body`, `link`, `post_time` FROM `portfolio` AS p WHERE p.user_id  = " + id + ";";
+    let result;
+    result = await query(sqlCommand);
+    // console.log(result);
+    return result;
+}
+
+const getUserBlogPosts = async(id) => {
+    // let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = " + id + ";";
+    let sqlCommand = "SELECT * FROM `blog` JOIN `user_login_info` AS uli ON blog.user_id = uli.user_id WHERE blog.user_id = " + id + ";";
+    let result;
+    // result.push( await query(sqlCommand));
+    result = await query(sqlCommand);
+    // console.log(result);
+    return result;
+}
+
+const getCircularPosts = async(cat, id) =>{
+    if(cat == 0){
+        let sqlCommand = "SELECT oci.user_id, `o_id`, `org_name`, `designation`, `job_responsibility`, `salary`, `job_type`, `emp_status`, `workplace`, `edu_req`, `exp_req`, `additional_req`, `job_location`, `benefits`, `looking_for`, `post_time`, `recruit_id`, `user_name` FROM `org_circular_info` as `oci` JOIN `user_login_info` as `uli` on oci.user_id = uli.user_id   WHERE oci.user_id = " + id + " ORDER BY post_time DESC;";
+        let result;
+        result = await query(sqlCommand);
+        return result;
+    }
+    else{
+        let sqlCommand = "SELECT oci.user_id, `o_id`, `org_name`, `designation`, `job_responsibility`, `salary`, `job_type`, `emp_status`, `workplace`, `edu_req`, `exp_req`, `additional_req`, `job_location`, `benefits`, `looking_for`, `post_time`, `recruit_id`, `user_name` FROM `org_circular_info` as `oci` JOIN `user_login_info` as `uli` on oci.user_id = uli.user_id WHERE job_type =" + cat + " AND   oci.user_id = " + id + " ORDER BY post_time DESC;";
+        let result;
+        result = await query(sqlCommand);
+        return result;
+    }
+    
+}
+
 module.exports = {
     getUserInfo,
     getUserSocialLinks,
@@ -59,5 +93,8 @@ module.exports = {
     getSoftSkills,
     getHardSkills,
     getWorkExpInfo,
-    getEduInfo
+    getEduInfo,
+    getUserWorks,
+    getUserBlogPosts,
+    getCircularPosts
 }
