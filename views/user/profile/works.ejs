@@ -9,50 +9,24 @@
 
                 <div class="portfolio_main">
 
-                    <h1>WWW.USERTECH249.COM</h1>
-                    <hr>
+                    
 
-                    <h2>PORTFOLIO</h2>
-                    <p>Hello I'm User User. You can know about my works from here.</p>
+                    
 
                     <div class="portfolio_row">
                         <div class="portfolio_column">
+                            <% if(data.works.length == 0){ %> You have not published in works <% }else{for(let i = 0; i < data.works.length; i++){ %>
                             <div class="portfolio_content">
-                                <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
+                                <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
                                 <h3>My Work</h3>
                                 <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
                             </div>
-                        </div>
-                        <div class="portfolio_column">
-                            <div class="portfolio_content">
-                                <img src="/w3images/lights.jpg" alt="Lights" style="width:100%">
-                                <h3>My Work</h3>
-                                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio_column">
-                            <div class="portfolio_content">
-                                <img src="/w3images/nature.jpg" alt="Nature" style="width:100%">
-                                <h3>My Work</h3>
-                                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                            </div>
-                        </div>
-                        <div class="portfolio_column">
-                            <div class="portfolio_content">
-                                <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%">
-                                <h3>My Work</h3>
-                                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                            </div>
+                            <% }} %> 
                         </div>
                         <!-- END GRID -->
                     </div>
 
-                    <div class="portfolio_content">
-                        <img src="/w3images/p3.jpg" alt="Bear" style="width:100%">
-                        <h3>Some Other Work</h3>
-                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                        <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
-                    </div>
+                    
 
                     <!-- END MAIN -->
                 </div>
