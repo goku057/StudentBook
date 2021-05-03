@@ -5,9 +5,29 @@
         <!-- included main navigation bar-->
         <%- include("./partials-user/navbarMain.ejs") %>
 
-
+        
             <div class="Blogs_div1">
-
+                <div class="container">
+                    <form action="/post-blog" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="subject"><b>Share a Post</b></label><br><br>
+        
+                                <!-- <button class="btn" style="padding: 12px 20px;margin: 1px;">Attach File</button> -->
+        
+                            </div>
+                            <div class="col-75">
+                                <textarea id="subject" name="title" placeholder="Write Your post Title.." style="height:50px" required="write"></textarea>
+                            </div>
+                            <div class="col-75">
+                                <textarea id="subject" name="body" placeholder="Write Your thoughts.." style="height:50px" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="ui primary button" style="float: right;">
+                            Post
+                          </button>
+                    </form>
+                </div>
                 <h3 class="ui center aligned header">Posts</h3>
                 <hr class="new1">
                 <div class="ui relaxed divided list">
@@ -19,19 +39,23 @@
                                 <p><%= data.posts[i].body.slice(0, 157) %>... <a  href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>">more...</a></p>
                                 <div class="description">Posted By: <%= data.posts[i].user_name %> </div>
                                 <div class="description">Posted: <%= data.posts[i].post_time %> </div>
+                                <% if(data.posts[i].user_id == data.activeUser){%>
+                                    <a href="/blog-edit?bid=<%= data.posts[i].b_id %> "><button>Edit</button></a>
+                                    <a onclick="return confirm('Are you sure?')" href="/blog-delete?bid=<%= data.posts[i].b_id %> "><button>Delete</button></a>
+                                <% } %>  
                             </div>
                             <br>
                         </div>
                         <% } %> 
                 </div>
             </div>
-            <div class="Blogs_div3" style="justify-items: left;">
+            <!-- <div class="Blogs_div3" style="justify-items: left;">
                 <button class="ui inverted secondary button"><h3>Check All Recent Posts</h3></button> <br>
                 <button class="ui inverted secondary button">All Posts</button> <br>
                 <button class="ui inverted secondary button">Relevant Posts</button> <br>
                 <button class="ui inverted secondary button">Most Viewed</button> <br>
 
-            </div>
+            </div> -->
     </body>
 
     </html>

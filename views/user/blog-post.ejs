@@ -1,0 +1,53 @@
+<!-- included headers of html-->
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="blogs_body">
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+
+            <div class="Blogs_div1">
+
+                <h3 class="ui center aligned header">Posts</h3>
+                <hr class="new1">
+                <div class="ui relaxed divided list">
+                    <%  for(let i = 0; i < data.posts.length; i++){ %> 
+                        <div class="item">
+                            <i class="large github middle aligned icon"></i>
+                            <div class="content">
+                                <a href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>" class="header"><%= data.posts[i].title %> </a></br>
+                                <p><%= data.posts[i].body %></p>
+                                <div class="description">Posted By: <%= data.posts[i].user_name %> </div>
+                                <div class="description">Posted: <%= data.posts[i].post_time %> </div>
+                                <br><div class="comment">
+                                    <div class="comment post">
+                                        <form action="/blog-comment" method="post">
+                                            <input type="hidden" name="uid" value="<%= data.posts[i].user_id %>"><input type="hidden" name="pid" value="<%= data.posts[i].b_id %>"><textarea name="body" id="" cols="30" rows="5" placeholder="Write your thoughts about this post"></textarea></div><button type="submit">Post it</button></form>
+                                    <% if(data.comment.legnth == 0){ %>
+                                         <div>No one commented yet</div>
+                                         <% }else{for(let i = 0; i < data.comment.length; i++){ %> 
+                                        <div class="comment sub">
+                                        <div class="comment head"> <%= data.comment[i].user_name %> </div>
+                                        <div class="comment body"><%= data.comment[i].body %></div>
+                                        <div class="comment date"><%= data.dateFormat(data.comment[i].post_time, "mmmm dS, yyyy, h:MM:ss TT"); %></div>
+                                        </div>
+                                        <br>
+                                        <% } }%> 
+                                    
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <% } %> 
+                </div>
+            </div>
+            <!-- <div class="Blogs_div3" style="justify-items: left;">
+                <button class="ui inverted secondary button"><h3>Check All Recent Posts</h3></button> <br>
+                <button class="ui inverted secondary button">All Posts</button> <br>
+                <button class="ui inverted secondary button">Relevant Posts</button> <br>
+                <button class="ui inverted secondary button">Most Viewed</button> <br>
+
+            </div> -->
+    </body>
+
+    </html>

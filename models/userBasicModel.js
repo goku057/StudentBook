@@ -13,7 +13,8 @@ const getUserInfo = async(id) => {
 
 const getHomePosts = async(id) => {
     // let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = " + id + ";";
-    let sqlCommand = "SELECT * FROM `blog` JOIN `user_login_info` AS uli ON blog.user_id = uli.user_id WHERE blog.user_id != " + id + ";";
+    // let sqlCommand = "SELECT * FROM `blog` JOIN `user_login_info` AS uli ON blog.user_id = uli.user_id WHERE blog.user_id != " + id + ";";
+    let sqlCommand = "SELECT * FROM `blog` JOIN `user_login_info` AS uli ON blog.user_id = uli.user_id WHERE 1 ORDER BY post_time DESC;";
     let result;
     // result.push( await query(sqlCommand));
     result = await query(sqlCommand);
@@ -114,6 +115,67 @@ const getDatasets = async () =>{
     return result;
 }
 
+const getBlogPost = async(uid, bid) => {
+    // let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = " + id + ";";
+    let sqlCommand = "SELECT * FROM `blog` JOIN `user_login_info` AS uli ON blog.user_id = uli.user_id WHERE blog.user_id = " + uid + " AND blog.b_id = "+ bid+ ";";
+    let data = {}
+    let result1;
+    // result.push( await query(sqlCommand));
+    result1 = await query(sqlCommand);
+    sqlCommand = "SELECT `comment_by`, `comment_id`, `post_by`, `post_id`, `post_type`, `body`, `post_time`, user_name, user_id FROM `comment_info` JOIN user_login_info ON user_id = comment_by WHERE  post_by = " + uid + " AND post_id = "+ bid +" AND post_type = 1 ORDER BY post_time DESC";
+    result2 = await query(sqlCommand);
+
+    data = {
+        post: result1,
+        comment: result2
+    }
+    // console.log(result);
+    return data;
+}
+
+const getCommentCount = async (uid) =>{
+    let sqlCommand = "SELECT COUNT(*) AS count FROM `comment_info` WHERE comment_by = "+ uid+";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
+const insertComment = async (id, commentCount, uid, pid, blog_type, body) =>{
+    let sqlCommand = "INSERT INTO `comment_info`(`comment_by`, `comment_id`, `post_by`, `post_id`, `post_type`, `body`, `post_time`) VALUES ("+ id +", "+ commentCount +", "+ uid +", "+ pid +", "+ blog_type + ", '"+ body + "', CURRENT_TIMESTAMP)";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
+const getBlogPostCount = async (uid) =>{
+    let sqlCommand = "SELECT COUNT(*) AS count FROM `blog` WHERE user_id = "+ uid+";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
+const insertBlog = async (id, blogCount, title,  body) =>{
+    let sqlCommand = "INSERT INTO `blog`(`user_id`, `b_id`, `image`, `title`, `body`, `post_time`) VALUES ("+ id +", "+ blogCount +", NULL, '"+ title + "', '"+ body + "', CURRENT_TIMESTAMP)";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
+const updateBlogPost = async (id, bid, title, body)=>{
+    let sqlCommand = "UPDATE `blog` SET `title`='"+ title +"',`body`='" + body + "',`post_time`= CURRENT_TIMESTAMP WHERE user_id = "+ id +" AND b_id = " + bid +";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
+const deleteBlogPost = async (id, bid)=>{
+    // console.log(id + bid);
+    let sqlCommand = "DELETE FROM `blog` WHERE user_id = "+ id +" AND b_id = " + bid +";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
 module.exports = {
     getUserInfo,
     getHomePosts,
@@ -124,5 +186,12 @@ module.exports = {
     getContractValidation,
     getContractCat,
     getContractPosts,
-    getDatasets
+    getDatasets,
+    getBlogPost,
+    getCommentCount,
+    insertComment,
+    getBlogPostCount,
+    insertBlog,
+    updateBlogPost,
+    deleteBlogPost
 }
