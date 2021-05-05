@@ -2,12 +2,17 @@
 const express = require("express");
 const app = express();
 
+
+//stripe
+const stripe = require('stripe')("sk_test_51Ick4IBNrUQf8H2jEebD5JkfJ9K7O1GuwksW3zJkAhuYHkjLeEhQB06kz65Q09fCrMzRwAWVfNZW6WzoGFFyLBQA00OgIeMjoz");
+
+
 //setting up view engine
 app.set("view engine", "ejs");
 
 //setting middlewares
 app.use(express.static("./public"));
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 //setting up routes
