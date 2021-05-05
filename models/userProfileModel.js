@@ -86,6 +86,25 @@ const getCircularPosts = async(cat, id) =>{
     
 }
 
+const updateWholeResume = async(id, address, phone, email, hard, soft) => {
+    let sqlAddress = `UPDATE user_contact set adress="${address}" WHERE user_id=${id}`;
+    let sqlPhone = `UPDATE user_contact set phone="${phone}" WHERE user_id=${id}`;
+    let sqlEmail = `UPDATE user_contact set email="${email}" WHERE user_id=${id}`;
+    let sqlHard = `UPDATE user_skills SET skill="${hard}" WHERE user_id=${id} AND s_id=2`;
+    let sqlSoft = `UPDATE user_skills SET skill="${soft}" WHERE user_id=${id} AND s_id=1`;
+
+    console.log(sqlAddress, sqlPhone, sqlEmail, sqlHard, sqlSoft);
+
+    await query(sqlAddress);
+    await query(sqlPhone);
+    await query(sqlEmail);
+    await query(sqlHard);
+    await query(sqlSoft);
+
+    
+
+}
+
 module.exports = {
     getUserInfo,
     getUserSocialLinks,
@@ -96,5 +115,6 @@ module.exports = {
     getEduInfo,
     getUserWorks,
     getUserBlogPosts,
-    getCircularPosts
+    getCircularPosts,
+    updateWholeResume
 }

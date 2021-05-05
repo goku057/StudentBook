@@ -1,0 +1,34 @@
+<%- include('../blocks/head_tag'); %>
+
+<%- include('../blocks/index_style_tag.ejs'); %>
+
+<body>
+
+        <!-- body todo -->
+
+        <%- include('../blocks/navbar_global'); %>
+        <div class="mother">
+        <div class="col-md-1000 text-center">
+            <h2 class="display-4 text-white">Stripe payment</h2>
+            <p class="lead text-white">Use the world's easiest payment system to get job done!</p>
+            <p>Please use the email that you used in StudentBook</p>
+        </div>
+        <form id="payment-form" action="/profile/payment/processFurther">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_51Ick4IBNrUQf8H2jQMnfRj7HNyGBmJk6MQqMQSs4LOlqSrtApioGgtxSi5MvqdvGdy4PT1HAIHt4tUvPlxdyENNK00fDiTTBzB"
+                data-amount="2500" data-name="StudentBook Payment">
+
+                </script>
+            <script>
+                // hiding the default button...
+                document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+            </script>
+            <div class="col-md-3000 text-center">
+                <button type="submit" class="btn btn-outline-light text-black btn-lg">Purchase 25$</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
