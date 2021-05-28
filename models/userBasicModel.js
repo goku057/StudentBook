@@ -21,6 +21,7 @@ const getHomePosts = async(id) => {
     // console.log(result);
     return result;
 }
+
 const getJobCatCount = async ()=>{
      // let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = " + id + ";";
      let sqlCommand = "SELECT COUNT(*) AS 'count' FROM `job_type_info`;";
@@ -176,6 +177,13 @@ const deleteBlogPost = async (id, bid)=>{
     return result;
 }
 
+const getActiveIdInfo = async (id) =>{
+    let sqlCommand = "SELECT * FROM user_login_info WHERE user_id = "+ id +";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+}
+
 module.exports = {
     getUserInfo,
     getHomePosts,
@@ -193,5 +201,6 @@ module.exports = {
     getBlogPostCount,
     insertBlog,
     updateBlogPost,
-    deleteBlogPost
+    deleteBlogPost,
+    getActiveIdInfo
 }

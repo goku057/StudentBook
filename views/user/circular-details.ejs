@@ -1,0 +1,96 @@
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="org_body">
+
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+
+            <div class="org_row">
+
+                
+                
+                <div id="Toggle" class="org_tabcontent">
+
+
+
+
+
+                    <div class="org_main">
+
+                        <h2>Given Circulars</h2>
+                        <hr class="new1">
+                        <div class="circulars_row">
+                            
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                <% if(data.circulars.length == 0){ %> <h3>There are no posts to show</h3> <% }else{ %>
+                                <% for(let i = 0; i < data.circulars.length; i++){       %> 
+                                    <div class="item">
+                                        <i class="large github middle aligned icon"></i>
+                                        <div class="circulars_content">
+                                            <a class="header" href="circular-details?uid=<%= data.circulars[i].user_id %>&pid=<%= data.circulars[i].o_id %>  "><%= data.circulars[i].looking_for %> WANTED</a>
+                                            <div class="description">designation: <%=   data.circulars[i].designation %></div>
+                                            <div class="description">Job Responsibilities: <br> <%=   data.circulars[i].job_responsibility %></div>
+                                            <div class="description">Salary: <%=   data.circulars[i].salary %>TK</div>
+                                            <div class="description">Employment Status:<%=   data.circulars[i].emp_status %></div>
+                                            <div class="description">Workplace: <%=   data.circulars[i].workplace %></div>
+                                            <div class="description">Educational requirements: <%=   data.circulars[i].edu_req %></div>
+                                            <div class="description">Experience requirements: <%=   data.circulars[i].exp_req %> Years</div>
+                                            <div class="description">Additional requirements: <%=   data.circulars[i].additional_req %></div>
+                                            <div class="description">Job location: <%=   data.circulars[i].job_location %></div>
+                                            <div class="description">Benefits: <%=   data.circulars[i].benefits %></div>
+                                            <div class="description">Posted By: <%=   data.circulars[i].user_name %></div>
+                                            <div class="description">Posted: <%=   data.dateFormat(data.circulars[i].post_time, "mmmm dS, yyyy, h:MM:ss TT"); %></div>
+                                        </div>
+                                        <% if(data.circulars[i].user_id == data.activeUser){ %>
+                                            <a href="/show-applicant-list?pid=<%= data.circulars[i].o_id %> "><button >Show Applicant list</button></a>
+                                        <% }else{if(data.applicationCount == 0){ %>
+                                            <a href="/apply-for-circular-job?uid=<%= data.circulars[i].user_id %>&pid=<%= data.circulars[i].o_id %>"><button>Apply for the job</button></a>
+                                        <%}else{%> <div>You applied for the job</div> <%  } } %>   
+                                    </div>
+                                <% } }%>  
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Status" class="org_tabcontent">
+
+                    </div>
+
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
+                </div>
+
+                <!-- <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("org_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script> -->
+
+    </body>
+
+    </html>

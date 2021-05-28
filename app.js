@@ -18,10 +18,11 @@ app.use(express.json());
 //setting up routes
 const userBasicRoutes = require("./routes/userBasicRoutes");
 const userProfileRoutes = require("./routes/userProfileRoutes");
-
+const userOrganizationRoutes = require("./routes/userOrganizationRoutes");
 //firing routes
 app.use(userBasicRoutes);
-app.use(userProfileRoutes)
+app.use(userProfileRoutes);
+app.use(userOrganizationRoutes);
 //listening to port
 app.listen(3000);
 

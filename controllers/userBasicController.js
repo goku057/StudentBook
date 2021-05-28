@@ -2,7 +2,8 @@
 const dateFormat = require("dateformat");
 const userBasicModel = require("../models/userBasicModel.js");
 //user id
-const id = 3;
+const id = require("../config/activeUser");
+
 
 const home = async(req, res) => {
     
@@ -13,7 +14,8 @@ const home = async(req, res) => {
     const data = {
         pageTitle: title,
         user,
-        posts
+        posts,
+        dateFormat
     }
     res.render("user/home.ejs", {data});
 
@@ -42,7 +44,7 @@ const circulars = async (req, res) => {
 
     let circularCat = await userBasicModel.getCircularCat();
     let job_circular_post = await userBasicModel.getCircularPosts(val.cat);
-    // console.log(circularCat);
+    let activeIdInfo = await userBasicModel.getActiveIdInfo(id);
 
     let title = "Circular Posts";
     const data = {
@@ -50,7 +52,9 @@ const circulars = async (req, res) => {
         cat: circularCat,
         circulars: job_circular_post,
         activeCat:val.cat,
-        dateFormat
+        dateFormat,
+        activeIdInfo,
+
     }
     res.render("user/circulars.ejs", {data});
 
@@ -124,7 +128,8 @@ const blogs = async (req, res) => {
     const data = {
         pageTitle: title,
         posts: blogs,
-        activeUser
+        activeUser,
+        dateFormat
     }
     res.render("user/blogs.ejs", {data});
 

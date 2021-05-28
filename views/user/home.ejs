@@ -58,7 +58,7 @@
                     <a href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>" class="header"><%= data.posts[i].title %> </a></br>
                     <p><%= data.posts[i].body.slice(0, 157) %>... <a  href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>">more...</a></p>
                     <div class="description">Posted By: <%= data.posts[i].user_name %> </div>
-                    <div class="description">Posted: <%= data.posts[i].post_time %> </div>
+                    <div class="description">Posted: <%= data.dateFormat(data.posts[i].post_time, "mmmm dS, yyyy, h:MM:ss TT"); %> </div>
                 </div>
                 <br>
             </div>

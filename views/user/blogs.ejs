@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-25">
                                 <label for="subject"><b>Share a Post</b></label><br><br>
-        
+                                
                                 <!-- <button class="btn" style="padding: 12px 20px;margin: 1px;">Attach File</button> -->
         
                             </div>
@@ -38,7 +38,7 @@
                                 <a href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>" class="header"><%= data.posts[i].title %> </a></br>
                                 <p><%= data.posts[i].body.slice(0, 157) %>... <a  href="/blog-post?bid=<%= data.posts[i].b_id %>&uid=<%= data.posts[i].user_id %>">more...</a></p>
                                 <div class="description">Posted By: <%= data.posts[i].user_name %> </div>
-                                <div class="description">Posted: <%= data.posts[i].post_time %> </div>
+                                <div class="description">Posted: <%= data.dateFormat(data.posts[i].post_time, "mmmm dS, yyyy, h:MM:ss TT"); %> </div>
                                 <% if(data.posts[i].user_id == data.activeUser){%>
                                     <a href="/blog-edit?bid=<%= data.posts[i].b_id %> "><button>Edit</button></a>
                                     <a onclick="return confirm('Are you sure?')" href="/blog-delete?bid=<%= data.posts[i].b_id %> "><button>Delete</button></a>

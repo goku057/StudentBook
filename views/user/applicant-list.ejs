@@ -1,0 +1,49 @@
+<!-- included headers of html-->
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="blogs_body">
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+        
+            <div class="Blogs_div1">
+                <!-- <div class="container">
+                    <form action="/post-blog" method="post">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="subject"><b>Share a Post</b></label><br><br>
+                                
+                                 <button class="btn" style="padding: 12px 20px;margin: 1px;">Attach File</button>
+        
+                            </div>
+                            <div class="col-75">
+                                <textarea id="subject" name="title" placeholder="Write Your post Title.." style="height:50px" required="write"></textarea>
+                            </div>
+                            <div class="col-75">
+                                <textarea id="subject" name="body" placeholder="Write Your thoughts.." style="height:50px" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="ui primary button" style="float: right;">
+                            Post
+                          </button>
+                    </form>
+                </div> -->
+                <h3 class="ui center aligned header">Applicant List</h3>
+                <hr class="new1">
+                <div class="ui relaxed divided list">
+                    <% for(let i = 0; i < data.applicantList.length; i++){ %>
+                        <div>applicant <%= i + 1 %> : <%= data.applicantList[i].user_name %> </div>    
+                    <% } %>  
+                        
+                </div>
+            </div>
+            <!-- <div class="Blogs_div3" style="justify-items: left;">
+                <button class="ui inverted secondary button"><h3>Check All Recent applicantList</h3></button> <br>
+                <button class="ui inverted secondary button">All applicantList</button> <br>
+                <button class="ui inverted secondary button">Relevant applicantList</button> <br>
+                <button class="ui inverted secondary button">Most Viewed</button> <br>
+
+            </div> -->
+    </body>
+
+    </html>
