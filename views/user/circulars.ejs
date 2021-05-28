@@ -26,7 +26,9 @@
 
 
                     <div class="org_main">
-
+                        <% if( data.activeIdInfo[0].user_category == 2){ %>
+                            <a href="/create-circular-post"><button>Create circular</button></a>
+                        <% } %>  
                         <h2>Given Circulars</h2>
                         <hr class="new1">
                         <div class="circulars_row">
@@ -38,11 +40,11 @@
                                     <div class="item">
                                         <i class="large github middle aligned icon"></i>
                                         <div class="circulars_content">
-                                            <a class="header"><%= data.circulars[i].looking_for %> WANTED</a>
+                                            <a class="header" href="circular-details?uid=<%= data.circulars[i].user_id %>&pid=<%= data.circulars[i].o_id %>  "><%= data.circulars[i].looking_for %> WANTED</a>
                                             <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
                                                 suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p> -->
                                                 <div class="description">Posted By: <%=   data.circulars[i].user_name %></div>
-                                                <div class="description">Posted: <%=   data.circulars[i].post_time %></div>
+                                                <div class="description">Posted: <%=   data.dateFormat(data.circulars[i].post_time, "mmmm dS, yyyy, h:MM:ss TT"); %></div>
                                         </div>
                                     </div>
                                 <% } }%>  

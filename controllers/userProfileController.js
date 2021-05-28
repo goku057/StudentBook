@@ -7,7 +7,7 @@ const helper = require('../helper');
 
 const stripe = require('stripe')("sk_test_51Ick4IBNrUQf8H2jEebD5JkfJ9K7O1GuwksW3zJkAhuYHkjLeEhQB06kz65Q09fCrMzRwAWVfNZW6WzoGFFyLBQA00OgIeMjoz");
 //user id
-const id = 3;
+const id = require("../config/activeUser");;
 
 const about = async (req, res) =>{
     let title = "Profile";
