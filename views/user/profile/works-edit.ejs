@@ -14,7 +14,7 @@
                     <form action="/works-edit" method="post">
                         <input type="hidden" name="pid" value="<%= data.posts[0].p_id %>">
                         Title : <input type="text" name="title" id="" value="<%= data.posts[0].title %> " placeholder="Enter title">
-                        <textarea name="body" id="" cols="30" rows="10" placeholder="Write something about your project"><%= data.posts[0].title %> </textarea>
+                        <textarea name="body" id="" cols="30" rows="10" placeholder="Write something about your project"><%= data.posts[0].body %> </textarea>
                         Link : <input type="text" name="link" id="" value="<%= data.posts[0].link %> "  placeholder="Enter project link">
                         <input type="submit" value="Post">
                     </form>
