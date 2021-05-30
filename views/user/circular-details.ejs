@@ -45,9 +45,12 @@
                                         </div>
                                         <% if(data.circulars[i].user_id == data.activeUser){ %>
                                             <a href="/show-applicant-list?pid=<%= data.circulars[i].o_id %> "><button >Show Applicant list</button></a>
+                                            <a href="/edit-circular?pid=<%= data.circulars[i].o_id %> "><button >Edit Post</button></a>
+                                            <a href="/delete-circular?pid=<%= data.circulars[i].o_id %> "><button >Delete Post</button></a>
                                         <% }else{if(data.applicationCount == 0){ %>
                                             <a href="/apply-for-circular-job?uid=<%= data.circulars[i].user_id %>&pid=<%= data.circulars[i].o_id %>"><button>Apply for the job</button></a>
                                         <%}else{%> <div>You applied for the job</div> <%  } } %>   
+                                     
                                     </div>
                                 <% } }%>  
                                 

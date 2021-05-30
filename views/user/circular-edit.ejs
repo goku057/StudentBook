@@ -1,0 +1,103 @@
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="org_body">
+
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+
+            <div class="org_row">
+
+                
+                
+                <div id="Toggle" class="org_tabcontent">
+
+
+
+
+
+                    <div class="org_main">
+
+                        <h2>Given Circulars</h2>
+                        <hr class="new1">
+                        <div class="circulars_row">
+                            
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                
+                                        <% for(let i = 0; i < data.circulars.length; i++){       %>
+                                        <form action="/edit-circular" method="POST">
+                                            <input type="hidden" name="pid" value="<%= data.circulars[i].o_id %>">
+                                            <div class="description">Organization name: <input type="text" name="orgName" required placeholder="Enter your organization name" value="<%= data.circulars[i].org_name %>"></div> 
+                                            <div class="description">Job Type: <select name="jobType" id="job-type">
+                                                <% for(let j = 0; j < data.jobType.length; j++){ %>
+                                                    <option value="<%= data.jobType[j].type_id %>" <% if(data.circulars[i].job_type == data.jobType[j].type_id){ %> selected <% } %>  ><%= data.jobType[j].job_cat %></option>
+                                                <% } %>  
+                                            </select></div>  
+                                            <div class="description">Looking For: <input type="text" name="lookingFor" placeholder="are you looking for web developer or game developer etc?" value="<%= data.circulars[i].looking_for %>" required ></div>
+                                            <div class="description">designation: <input type="text" name="designation" value="<%= data.circulars[i].designation %>"  required></div>
+                                            <div class="description">Job Responsibilities: <input type="text" name="jobDescription" placeholder="Write anything the recruit has to maintain" value="<%= data.circulars[i].job_responsibility %>" required></div>
+                                            <div class="description">Salary: <br> <input type="number"  name="salary" value="<%= data.circulars[i].salary %>" required></div><br>
+                                            
+                                            <div class="description">Employment Status:: <select name="empStatus" id="empStatus">
+                                                <option value="Full-Time" <% if(data.circulars[i].emp_status == "Full Time"){ %> selected <% } %>  >Full-Time</option>
+                                                <option value="Part-Time"  <% if(data.circulars[i].emp_status == "Part Time"){ %> selected <% } %> >Part-Time</option>
+                                            </select></div>
+                                            <div class="description">Workplace: <select name="workplace" id="workplace">
+                                                <option value="Office" <% if(data.circulars[i].workplace == "Office"){ %> selected <% } %>>Office</option>
+                                                <option value="Work From Home" <% if(data.circulars[i].emp_status == "Work From Home"){ %> selected <% } %>>Work From Home</option>
+                                            </select></div>
+                                            <div class="description">Educational requirements: <input type="text" name="eduReq" placeholder="Write the educational requirements you want" value="<%= data.circulars[i].edu_req %>"  required></div>
+                                            <div class="description">Experience requirements: <br><input type="number" name="expReq" value="<%= parseInt(data.circulars[i].exp_req, 10) %>" required></div><br>
+                                            <div class="description" >Additional requirements: <input type="text" name="addReq" placeholder="Write any additional requirements you need"  value="<%= data.circulars[i].additional_req %>" required></div>
+                                            <div class="description">Job location: <input type="text" name="jobLocation"  value="<%= data.circulars[i].job_location %>" placeholder="Write the location of your company" required></div>
+                                            <div class="description">Benefits: <input type="text" name="benefits" placeholder="Write any additional benefits the recruit gets" value="<%= data.circulars[i].benefits %>"  required></div>
+                                            
+                                            <div class="description"><input type="submit" value="SAVE EDIT"></div>
+                                        </form>
+                                    </div>
+                                <%  }%>  
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Status" class="org_tabcontent">
+
+                    </div>
+
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
+                </div>
+
+                <!-- <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("org_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script> -->
+
+    </body>
+
+    </html>

@@ -1,0 +1,41 @@
+<!-- included headers of html-->
+<%- include("./partials-user/header.ejs") %>
+
+    <body class="blogs_body">
+        <!-- included main navigation bar-->
+        <%- include("./partials-user/navbarMain.ejs") %>
+
+
+            <div class="Blogs_div1">
+
+                <h3 class="ui center aligned header">Posts</h3>
+                <hr class="new1">
+                <div class="ui relaxed divided list">
+                    <%  for(let i = 0; i < data.dataset.length; i++){ %> 
+                        <div class="item">
+                            <i class="large github middle aligned icon"></i>
+                            <div class="content">
+                                <a href="/dataset/post?pid=<%= data.dataset[i].d_id %>&uid=<%= data.dataset[i].user_id %>" class="header"><%= data.dataset[i].title %> </a></br>
+                                <p><%= data.dataset[i].body %></p>
+                                <a href="/user/<%= data.dataset[i].dataset %> "><Button>Download File</Button></a>
+                                <div class="description">Posted By: <%= data.dataset[i].user_name %> </div>
+                                <div class="description">Posted: <%= data.dataset[i].post_time %> </div>
+                                <br>
+                                <% if(data.dataset[i].user_id == data.activeUser){ %>
+                                    <a onclick="return confirm('Are you sure?')" href="/datasets/delete?pid=<%= data.dataset[i].d_id %> "><button>DELETE</button></a> <% } %>  
+                            </div>
+                            <br>
+                        </div>
+                        <% } %> 
+                </div>
+            </div>
+            <!-- <div class="Blogs_div3" style="justify-items: left;">
+                <button class="ui inverted secondary button"><h3>Check All Recent Posts</h3></button> <br>
+                <button class="ui inverted secondary button">All Posts</button> <br>
+                <button class="ui inverted secondary button">Relevant Posts</button> <br>
+                <button class="ui inverted secondary button">Most Viewed</button> <br>
+
+            </div> -->
+    </body>
+
+    </html>

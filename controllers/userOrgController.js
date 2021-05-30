@@ -99,7 +99,7 @@ const showForm = async (req, res)=>{
 }
 
 const saveForm = async (req, res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     let uid = id;
     let lookingFor = req.body.lookingFor;
     let designation = req.body.designation;
@@ -123,11 +123,84 @@ const saveForm = async (req, res)=>{
     res.redirect("/organization");
 }
 
+const deleteCircular = async (req, res) =>{
+    let val = req.query;
+    if(Object.keys(val).length == 0){
+        res.render("404");
+    }
+    if(val.pid == undefined ) {
+        res.render("404");
+    }
+    let pid = val.pid;
+    let uid = id;
+    await userOrgModel.deleteCircular(uid, pid);
+    
+    res.redirect("/organization");
+
+}
+
+const editCircular = async (req, res) =>{
+    let val = req.query;
+    if(Object.keys(val).length == 0){
+        res.render("404");
+    }
+    if(val.pid == undefined ) {
+        res.render("404");
+    }
+    let pid = val.pid;
+    let uid = id;
+    let job_circular_post = await userOrgModel.getCircularPost(uid, pid);
+    // console.log(circularCat);
+    let job_type = job_circular_post[0].job_type;
+    let applicationCount = await   userOrgModel.getApplicantCount(id, uid, pid, job_type);
+    applicationCount = applicationCount[0].row_count;
+    jobType = await userOrgModel.getJobType();
+    let title = "Circular Posts";
+    const data = {
+        pageTitle: title,
+        circulars: job_circular_post,
+        dateFormat,
+        activeUser: uid,
+        applicationCount,
+        jobType
+    }
+    res.render("user/circular-edit", {data});
+
+}
+
+const editCircularPost =  async (req, res)=>{
+    // console.log(req.body);
+    let uid = id;
+    let pid = req.body.pid;
+    let lookingFor = req.body.lookingFor;
+    let designation = req.body.designation;
+    let jobDescription = req.body.jobDescription;
+    let salary = req.body.salary;
+    let empStatus = req.body.empStatus;
+    let workplace = req.body.workplace;
+    let eduReq = req.body.eduReq;
+    let expReq = req.body.expReq;
+    let addReq = req.body.addReq;
+    let jobLocation = req.body.jobLocation;
+    let benefits = req.body.benefits;
+    let jobType = req.body.jobType;
+    let orgName = req.body.orgName;
+    await userOrgModel.editCircular(uid, pid, lookingFor, designation, jobDescription, salary, empStatus, workplace, eduReq, expReq, addReq, jobLocation, benefits, jobType, orgName);
+    let title = "Applicant List";
+    // console.log(jobType)
+    const data = {
+        pageTitle: title,
+    }
+    res.redirect("/circular-details?uid=" + uid + "&pid=" + pid);
+}
+
 module.exports = {
     showCircular,
     applyForJob,
     applicantList,
     showForm,
     saveForm,
-
+    deleteCircular,
+    editCircular,
+    editCircularPost
 }

@@ -29,23 +29,31 @@
                                         <i class="large github middle aligned icon"></i>
                                         <div class="circulars_content">
                                             <form action="/circular-save" method="POST">
-                                            <div class="description">Organization name: <input type="text" name="orgName" required></div>   
-                                            <div class="description">Looking For: <input type="text" name="lookingFor" required></div>
-                                            <div class="description">designation: <input type="text" name="designation" required></div>
-                                            <div class="description">Job Responsibilities: <input type="text" name="jobDescription" required></div>
-                                            <div class="description">Salary: <input type="text" name="salary" required></div>
-                                            <div class="description">Employment Status:<input type="text" name="empStatus" required></div>
-                                            <div class="description">Workplace: <input type="text" name="workplace" required></div>
-                                            <div class="description">Educational requirements: <input type="text" name="eduReq" required></div>
-                                            <div class="description">Experience requirements: <input type="text" name="expReq" required></div>
-                                            <div class="description" >Additional requirements: <input type="text" name="addReq" required></div>
-                                            <div class="description">Job location: <input type="text" name="jobLocation" required></div>
-                                            <div class="description">Benefits: <input type="text" name="benefits" required></div>
+                                            <div class="description">Organization name: <input type="text" name="orgName" required placeholder="Enter your organization name"></div> 
                                             <div class="description">Job Type: <select name="jobType" id="job-type">
                                                 <% for(let i = 0; i < data.jobType.length; i++){ %>
                                                     <option value="<%= data.jobType[i].type_id %>"><%= data.jobType[i].job_cat %></option>
                                                 <% } %>  
+                                            </select></div>  
+                                            <div class="description">Looking For: <input type="text" name="lookingFor" placeholder="are you looking for web developer or game developer etc?" required ></div>
+                                            <div class="description">designation: <input type="text" name="designation"  required></div>
+                                            <div class="description">Job Responsibilities: <input type="text" name="jobDescription" placeholder="Write anything the recruit has to maintain" required></div>
+                                            <div class="description">Salary: <br> <input type="number"  name="salary" required></div><br>
+                                            
+                                            <div class="description">Employment Status:: <select name="empStatus" id="empStatus">
+                                                <option value="Full-Time">Full-Time</option>
+                                                <option value="Part-Time">Part-Time</option>
                                             </select></div>
+                                            <div class="description">Workplace: <select name="workplace" id="workplace">
+                                                <option value="Office">Office</option>
+                                                <option value="Work From Home">Work From Home</option>
+                                            </select></div>
+                                            <div class="description">Educational requirements: <input type="text" name="eduReq" placeholder="Write the educational requirements you want" required></div>
+                                            <div class="description">Experience requirements: <br><input type="number" name="expReq" required></div><br>
+                                            <div class="description" >Additional requirements: <input type="text" name="addReq" placeholder="Write any additional requirements you need" required></div>
+                                            <div class="description">Job location: <input type="text" name="jobLocation" placeholder="Write the location of your company" required></div>
+                                            <div class="description">Benefits: <input type="text" name="benefits" placeholder="Write any additional benefits the recruit gets" required></div>
+                                            
                                             <div class="description"><input type="submit" value="Post"></div>
                                         </form>
                                         </div>

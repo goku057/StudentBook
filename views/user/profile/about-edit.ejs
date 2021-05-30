@@ -1,0 +1,90 @@
+<%- include("../partials-user/header.ejs") %>
+
+    <body class="org_body">
+
+        <!-- included main navigation bar-->
+        <%- include("../partials-user/navbarMain.ejs") %>
+
+
+            <div class="org_row">
+
+                
+                
+                <div id="Toggle" class="org_tabcontent">
+
+
+
+
+
+                    <div class="org_main">
+
+                        <h2>Your details</h2>
+                        <hr class="new1">
+                        <div class="circular_row">
+                            
+                            <!-- END GRID -->
+                            <div class="ui relaxed divided list">
+                                
+                                        <% for(let i = 0; i < data.user.length; i++){       %>
+                                        <form action="/edit-profile" method="POST">
+                                            <div class="description">Organization name: <input type="text" name="firstName" required placeholder="Enter your organization name" value="<%= data.user[i].first_name %>"></div> 
+                                             
+                                            <div class="description">Last Name: <input type="text" name="lastName" placeholder="Enter your last name" value="<%= data.user[i].last_name %>" required ></div>
+                                            <div class="description">Birth Date: <input type="date" name="bday" value="<%= data.dateFormat(data.user[0].dob, "yyyy-mm-dd") %>"  required> </div>
+                                            <div class="description">What do you like to call yourself: <input type="text" name="interest" placeholder="eg: student, developer" value="<%= data.user[i].interest %>" required></div>
+                                            <div class="description">Your personal Website: <br> <input type="text"  name="website" value="<%= data.socialLinks[i].website %>" placeholder="Enter your personal website if you have any"></div><br>
+                                            
+                                            
+                                            <div class="description">Your Email: <input type="text" name="email" placeholder="eg: random@mail.com" value="<%= data.user[i].user_email %>"  required></div>
+                                            <div class="description">Linkedin Profile link: <br><input type="text" name="linkedin" value="<%= data.socialLinks[i].linkedin %>" required></div><br>
+                                            <div class="description">Tell us about you: <br><textarea type="text" name="aboutMe" placeholder="Write about yourself..." required><%= data.user[i].about_me %></textarea></div><br>
+                                            
+                                            
+                                            <div class="description"><input type="submit" value="SAVE EDIT"></div>
+                                        </form>
+                                    </div>
+                                <%  }%>  
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="Status" class="org_tabcontent">
+
+                    </div>
+
+                    <div id="Personal_Posts" class="org_tabcontent">
+
+
+                    </div>
+
+
+                    <div id="Organizational_Posts" class="org_tabcontent">
+                    </div>
+
+
+                </div>
+
+                <!-- <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("org_tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+                </script> -->
+
+    </body>
+
+    </html>

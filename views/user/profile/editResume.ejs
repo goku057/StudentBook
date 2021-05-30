@@ -25,66 +25,54 @@ input {
     position: absolute;
     text-align: left;
     top: 22%; left: 3%;">
-    <form action="" method="post"></form>
-    <form action="/profile/updateResume" method="POST" style="display: inline;float: left;">
+    
+    <!-- <form action="/profile/updateResume" method="POST" style="display: inline;float: left;"> -->
         <!-- <a href="/profile/editResume?id=<%= data.id %>">Edit</a><br> -->
   
-
+        <form action="/update-address" method="POST" style="min-width: 500px;" >
             <label for="test">Address </label>
-            <span><input  name="address" id="test" type="text" value="<%= data.contact[0].adress %>"/></span>
-
+            <span><input  name="address" id="test" type="text" value="<%= data.contact[0].adress %>"/><input type="submit" value="Update Address" style="max-width: 200px;"></span>
+        </form>
+        <br>
+        <form action="/update-phone" method="POST">
             <label for="test">Phone </label>
-            <span><input  name="phone" id="test" type="text" value="<%= data.contact[0].phone %>"/></span>
-
+            <span><input  name="phone" id="test" type="text" value="<%= data.contact[0].phone %>"/><input type="submit" value="Update Phone" style="max-width: 200px;"></span>
+        </form><br>
+        <form action="/update-email" method="POST">
             <label for="test">Email </label>
-            <span><input  name="email" id="test" type="text" value="<%= data.contact[0].email %>"/></span>
+            <span><input  name="email" id="test" type="text" value="<%= data.contact[0].email %>"/><input type="submit" value="Update Email" style="max-width: 200px;"></span><br>
+        </form> <br>
+            Add Hard Skills: <br>
+            <ul class="list_">
+                <% if(data.hardSkills.length == 0){ %> 
+                <li class="block_6"><span>No skills added</span></li>
+                <% }else{ for(let i = 0; i < data.hardSkills.length; i++){ %>
+                    <li class="block_6"><span><%= data.hardSkills[i].skill %>  &nbsp; <a onclick="return confirm('are you sure?')" href="/hardskill-delete?sid=<%= data.hardSkills[i].s_id %>&uid=<%= data.hardSkills[i].user_id %>">Delete</a> </span></li>
 
-            <label for="test">Add Hard Skills </label>
-            <span><input  name="hard" id="test" type="text" value=""/></span>
-
-            <label for="test">Add Soft Skills </label>
-            <span><input  name="soft" id="test" type="text" value=""/></span>
-
+                <% } } %> 
+            
+            </ul> 
+            <form action="/add-hardskill" method="post">
+            <span><input  name="hard" id="test" type="text" placeholder="Enter hardskills eg:programming language"/></span>
+            </form>
+            <br>
+            Add Soft Skills<br>
+            <ul class="list_">
+                <% if(data.softSkills.length == 0){ %> 
+                <li class="block_6"><span>No skills added</span></li>
+                <% }else{ for(let i = 0; i < data.softSkills.length; i++){ %>
+                    <li class="block_6"><span><%= data.softSkills[i].skill %> &nbsp; <a onclick="return confirm('are you sure?')" href="/softskill-delete?sid=<%= data.softSkills[i].s_id %>&uid=<%= data.softSkills[i].user_id %>">Delete</a></span></li>
+                <% } } %> 
+            </ul>
+            <form action="/add-softskill" method="post">
+            <span><input  name="soft" id="test" type="text" placeholder="Enter soft skills  eg:hardworker"/></span>
+            </form>
             <!-- <label for="test">Experience </label>
             <span><input  name="experience" id="test" type="text" value=""/></span> -->
 
 
 
-            Hard Skills<table class="table_">
-                <tbody class="calibre2">
-                    <tr class="calibre3">
-                        <td class="td_">
-                            <ul class="list_">
-                                <% if(data.hardSkills.length == 0){ %> 
-                                <li class="block_6"><span>No skills added</span></li>
-                                <% }else{ for(let i = 0; i < data.hardSkills.length; i++){ %>
-                                    <li class="block_6"><span><%= data.hardSkills[i].skill %> </span></li>
-
-                                   <!-- <% var str = str + data.hardSkills[i].skill; %> -->
-                                <% } } %> 
-                                <!-- <p><%  str %></p> -->
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-           Soft Skills</b>
-                    <table class="table_">
-                        <tbody class="calibre2">
-                            <tr class="calibre3">
-                                <td class="td_">
-                                    <ul class="list_">
-                                        <% if(data.softSkills.length == 0){ %> 
-                                        <li class="block_6"><span>No skills added</span></li>
-                                        <% }else{ for(let i = 0; i < data.softSkills.length; i++){ %>
-                                            <li class="block_6"><span><%= data.softSkills[i].skill %> </span></li>
-                                        <% } } %> 
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            
 
 
                     <b>Experience:</b>
@@ -92,27 +80,63 @@ input {
                         <p>You have no  Experience</p>    
                     <% }else{ for(let i = 0; i < data.experience.length; i++){ %>
                         <p>Organization: <%= data.experience[i].org_name %> <br> 
-                            <%= data.experience[i].designation %> </b><span> - <%= data.dateFormat(data.experience[i].start_year, "mmmm dS, yyyy"); %> to <% if(data.experience[i].end_year == null){ %> Present <% }else{ %><%= data.dateFormat(data.experience[i].end_year, "mmmm dS, yyyy")%><% } %> </span></p>
-                    
+                            My designation: <%= data.experience[i].designation %> </b><span> - <%= data.dateFormat(data.experience[i].start_year, "mmmm dS, yyyy"); %> to <% if(data.experience[i].end_year == null){ %> Present <% }else{ %><%= data.dateFormat(data.experience[i].end_year, "mmmm dS, yyyy")%><% } %> </span></p>
+                            <a onclick="return confirm('You sure about deleting your experience?')" href="/delete-exp?pid=<%= data.experience[i].w_id %> "><Button style="background-color: #e41c37;
+                                color: white;
+                                padding: 12px 20px;
+                                border: none;
+                                cursor: pointer;">Delete</Button></a> <br><br>
                     <% } } %>
+                    
+                    <br>
+                    Add Your experiences: <br>
+                    <form action="/add-exp" method="POST">
+                        <div>
+                            Organization Name: <input type="text" name="orgName" id="" placeholder="Enter organization name">
+                            <input type="text" name="designation" id="" placeholder="Enter Your designation">
+                            Start Year: <input type="date" name="startYear" style="max-width: 257px;" id="">
+                            End Year: <input type="date" name="endYear" style="max-width: 257px;" id="">
+                            <input type="submit" style="max-width: 257px;" value="ADD you experience">
+                        </div>
+                    </form>
 
-
-
+                    <b>Education:</b> <br>
                     <% if(data.edu.length == 0){ %> <p>No Education history</p> <% }else{for (let i = 0; i < data.edu.length; i++) {%>
-                        <br>  
-                        <b>Education</b> <br>
+                        
                         <span lang="en"> <%= data.edu[i].edu_type %>  : <b><%= data.edu[i].edu_name %> </b></span>
-                        <br>Certificate: <b><%= data.edu[i].certificate %> </b>
-                        <br>
+                        <span> Certificate: <b><%= data.edu[i].certificate %> </b></span>
+                        
                         <span>Years Active:</span>
-                        <span lang="en"> <%= data.dateFormat(data.edu[i].start_year, "mmmm dS, yyyy")%>- <%= data.dateFormat(data.edu[i].end_year, "mmmm dS, yyyy")%></span>
+                        <span lang="en"> <%= data.dateFormat(data.edu[i].start_year, "mmmm dS, yyyy")%>- <% if(data.edu[i].end_year == null){ %> Present <% }else{ %><%= data.dateFormat(data.edu[i].end_year, "mmmm dS, yyyy")%><% } %></span>
                         <p>Result: <%= data.edu[i].result %> </p>
+                        <a onclick="return confirm('You sure about deleting your experience?')" href="/delete-edu?pid=<%= data.edu[i].edu_id %> "><Button style="background-color: #e41c37;
+                            color: white;
+                            padding: 12px 20px;
+                            border: none;
+                            cursor: pointer;">Delete</Button></a> <br><br>
                         <p></p>
                         
                         <% }} %> 
 
-                        <button type="submit">Update</button>
-    </form>
+                        <form action="/add-edu" method="POST">
+                            <div>
+                                Institute Name: <input type="text" name="eduName" id="" placeholder="Enter Your institute name" required>
+                                Certificate Name:
+                                <input type="text" name="certificate" id="" placeholder="Eg: SSC, HSC, BsCSE">
+                                <select name="eduType" id="">
+                                    <option value="school">SCHOOL</option>
+                                    <option value="college">COLLEGE</option>
+                                    <option value="university">UNIVERSITY</option>
+                                </select>
+                                Result:
+                                <input type="text" name="result" id="" placeholder="Enter your cgpa or gpa" required>
+                                Start Year: <input type="date" name="startYear" style="max-width: 257px;" id="" required>
+                                End Year: <input type="date" name="endYear" style="max-width: 257px;" id="">
+                                <input type="submit" style="max-width: 257px;" value="ADD Your Institute">
+                            </div>
+                        </form>
+                        
+    <!-- </form> -->
 
                   
 

@@ -19,10 +19,13 @@ app.use(express.json());
 const userBasicRoutes = require("./routes/userBasicRoutes");
 const userProfileRoutes = require("./routes/userProfileRoutes");
 const userOrganizationRoutes = require("./routes/userOrganizationRoutes");
+const userDatasetRoutes = require("./routes/userDatasetRoutes");
 //firing routes
 app.use(userBasicRoutes);
 app.use(userProfileRoutes);
 app.use(userOrganizationRoutes);
+app.use(userDatasetRoutes);
+
 //listening to port
 app.listen(3000);
 
@@ -41,7 +44,7 @@ app.get("/test", (req, res)=>{
 //const {upload} = require("./config/userMulter");
 
 app.post("/test"/*, upload.single('img')*/ ,(req, res) =>{
-    console.log(req.body.name);
+    console.log(req.body);
     const data = {
         pageTitle:req.path.split('/')[1],
         success:false
