@@ -11,18 +11,20 @@
 
                     
 
-                    
+                    <a href="/works-add"><input type="submit" value="Create new project"> </a>
 
                     <div class="portfolio_row">
+                        <% if(data.works.length == 0){ %> You have not published in works <% }else{for(let i = 0; i < data.works.length; i++){ %>
                         <div class="portfolio_column">
-                            <% if(data.works.length == 0){ %> You have not published in works <% }else{for(let i = 0; i < data.works.length; i++){ %>
+                            
                             <div class="portfolio_content">
                                 <!-- <img src="/w3images/mountains.jpg" alt="Mountains" style="width:100%"> -->
-                                <h3>My Work</h3>
-                                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+                                <a href="/works-details?pid=<%= data.works[i].p_id %> "><h3><%= data.works[i].title %></h3></a>
+                                <p><%= data.works[i].body.slice(0, 157) %></p>
                             </div>
-                            <% }} %> 
+                            
                         </div>
+                        <% }} %> 
                         <!-- END GRID -->
                     </div>
 

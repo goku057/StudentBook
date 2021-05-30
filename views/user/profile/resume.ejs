@@ -26,20 +26,20 @@ input {
     text-align: left;
     top: 22%; left: 3%;">
 
-    <form style="display: inline;float: left;">
-        <a href="/profile/editResume?id=<%= data.id %>">Edit</a><br>
+    
+        <a href="/profile/editResume?id=<%= data.id %>">Click to Edit your profile</a><br><br><br>
   
 
-            <label for="test">Address </label>
+            Address: <br>
             <p><span><%= data.contact[0].adress %></span></p>
 
-            <label for="test">Phone </label>
-            <p><span><%= data.contact[0].phone %></span></p>
-
-            <label for="test">Email </label>
-            <span><input readonly name="email" id="test" type="text" value="<%= data.contact[0].email %>"/></span>
-
-            Hard Skills<table class="table_">
+            Phone:
+            <p><span id="phn"><%= data.contact[0].phone %></span></p><br>
+            Email:
+            <p><span id="email"><%= data.contact[0].email %></span></p>
+            <br>
+            Hard Skills <br>
+            <table class="table_">
                 <tbody class="calibre2">
                     <tr class="calibre3">
                         <td class="td_">
@@ -81,7 +81,7 @@ input {
                         <p>You have no  Experience</p>    
                     <% }else{ for(let i = 0; i < data.experience.length; i++){ %>
                         <p>Organization: <%= data.experience[i].org_name %> <br> 
-                            <%= data.experience[i].designation %> </b><span> - <%= data.dateFormat(data.experience[i].start_year, "mmmm dS, yyyy"); %> to <% if(data.experience[i].end_year == null){ %> Present <% }else{ %><%= data.dateFormat(data.experience[i].end_year, "mmmm dS, yyyy")%><% } %> </span></p>
+                           Known as <%= data.experience[i].designation %> </b><span> Active years- <%= data.dateFormat(data.experience[i].start_year, "mmmm dS, yyyy"); %> to <% if(data.experience[i].end_year == null){ %> Present <% }else{ %><%= data.dateFormat(data.experience[i].end_year, "mmmm dS, yyyy")%><% } %> </span></p>
                     
                     <% } } %>
 
@@ -99,7 +99,6 @@ input {
                         <p></p>
                         
                         <% }} %> 
-    </form>
 
                   
 

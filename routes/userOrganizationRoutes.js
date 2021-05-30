@@ -8,6 +8,9 @@ router.get("/apply-for-circular-job", userOrgController.applyForJob);
 router.get("/show-applicant-list", userOrgController.applicantList);
 router.get("/create-circular-post", userOrgController.showForm);
 router.post("/circular-save", userOrgController.saveForm);
+router.get("/delete-circular", userOrgController.deleteCircular);
+router.get("/edit-circular", userOrgController.editCircular);
+router.post("/edit-circular", userOrgController.editCircularPost);
 
 
 

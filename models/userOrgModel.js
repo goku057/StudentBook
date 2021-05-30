@@ -40,14 +40,34 @@ const getJobType = async () =>{
 } 
 
 const saveForm = async (uid, lookingFor, designation, jobDescription, salary, empStatus, workplace, eduReq, expReq, addReq, jobLocation, benefits, jobType, orgName) =>{
-    let sqlCommand = "SELECT COUNT(o_id) AS c FROM `org_circular_info` WHERE user_id = " + uid + ";";
+    let sqlCommand = "SELECT o_id FROM `org_circular_info` WHERE user_id = " + uid + " ORDER BY o_id DESC LIMIT 1;";
     let oid;
     oid = await query(sqlCommand);
-    oid = oid[0].c + 1;
+    if(oid[0] == undefined){
+        oid = 1;
+    }
+    else{
+        oid = oid[0].o_id + 1;
+    }
     sqlCommand = "INSERT INTO `org_circular_info`(`user_id`, `o_id`, `org_name`, `designation`, `job_responsibility`, `salary`, `job_type`, `emp_status`, `workplace`, `edu_req`, `exp_req`, `additional_req`, `job_location`, `benefits`, `looking_for`, `post_time`) VALUES (" + uid +", " + oid +", '" + orgName +"', '" + designation +"', '" + jobDescription +"', " + salary +", " + jobType +", '" + empStatus +"', '" + workplace +"', '" + eduReq +"', '" + expReq +"', '" + addReq +"', '" + jobLocation +"', '" + benefits +"', '" + lookingFor +"', CURRENT_TIMESTAMP);";
     let result = await query(sqlCommand);
     return result;
 } 
+
+const deleteCircular = async (uid, pid) =>{
+    let sqlCommand = "DELETE  FROM `org_circular_info` WHERE user_id = " + uid + " AND o_id = " + pid + " ;";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+} 
+
+const editCircular = async (uid, pid, lookingFor, designation, jobDescription, salary, empStatus, workplace, eduReq, expReq, addReq, jobLocation, benefits, jobType, orgName) =>{
+    let sqlCommand = "UPDATE `org_circular_info` SET `org_name`='" + orgName + "',`designation`='" + designation + "',`job_responsibility`='" + jobDescription + "',`salary`= " + salary + ",`job_type`=" + jobType + " ,`emp_status`='" + empStatus + "',`workplace`='" + workplace + "',`edu_req`='" + eduReq + "',`exp_req`='" + expReq + "',`additional_req`='" + addReq + "',`job_location`='" + jobLocation + "',`benefits`='" + benefits + "',`looking_for`='" + lookingFor + "' WHERE user_id = " + uid + " AND o_id = " + pid + ";";
+    let result;
+    result = await query(sqlCommand);
+    return result;
+} 
+
 
 
 module.exports = {
@@ -57,5 +77,7 @@ module.exports = {
     getApplicantList,
     getJobType,
     saveForm,
+    deleteCircular,
+    editCircular,
 
 }

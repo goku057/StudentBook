@@ -9,8 +9,9 @@
                 <div class="about_div1">
                     <div style="padding-left:16px">
                         <br>
-                        <h3 class="ui center aligned header">About Me</h3>
+                        <h3 class="ui center aligned header">About Me </h3>
                         <hr class="new1">
+                        
                         <div class="ui three column grid container">
                             <div class="column">
                                 <div class="ui segment">Name: <br> <pre><%= data.user[0].first_name + " " + data.user[0].last_name%> </pre></div>
@@ -43,11 +44,33 @@
 
                 </div>
                 <div class="about_pic_div3">
-                    <img src="<% if(data.user[0].user_img == null){ %>/user/images/default.jpg<% }else{ %><%= data.user[0].user_img %>  <% } %>" alt="about" width="300px" height="300px">
+                    <img src="<% if(data.user[0].user_img == null){ %>/user/images/default.jpg<% }else{ %>/user/<%= data.user[0].user_img %>  <% } %>" alt="about" width="300px" height="300px">
                     <h3><%= data.user[0].user_name %> </h3>
                     <p><%= data.user[0].name %></p>
+                    <form action="/upload-profile" enctype="multipart/form-data" id="dp" style="visibility: hidden;" method="POST"><input type="file" name="profile" id="" required><input type="submit" value="Save"></form>
+                    <button style="background-color: #4CAF50;
+                    color: white;
+                    padding: 12px 20px;
+                    border: none;
+                    cursor: pointer;" onclick="showOpt()">Change DP</button>
+                    <a href="/profile/about-edit"><button style="background-color: #4CAF50;
+                    color: white;
+                    padding: 12px 20px;
+                    border: none;
+                    cursor: pointer;">Edit Profile</button></a>
                 </div>
                 
     </body>
 
     </html>
+    <script>
+        function showOpt(){
+            let dp = document.querySelector("#dp");
+            if(dp.style.visibility == "visible"){
+                dp.style.visibility = "hidden";
+            }
+            else{
+                dp.style.visibility = "visible";
+            }
+        }
+    </script>
