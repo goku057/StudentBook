@@ -244,7 +244,7 @@ const saveProfile  = async(uid, firstName, lastName, bday, interest, email, link
     let sqlCommand = "UPDATE `user_info` SET `first_name`='"+ firstName+"',`last_name`='"+ lastName+"',`dob`='"+ bday+"',`interest`='"+ interest+"',`about_me`='"+ aboutMe+"' WHERE user_id = " + uid +";";
     let result = await query(sqlCommand);
 
-    sqlCommand = "UPDATE user_contact SET email = '"+ email +"' WHERE user_id = " + uid +";";
+    sqlCommand = "UPDATE user_login_info SET user_email = '"+ email +"' WHERE user_id = " + uid +";";
     await query(sqlCommand);
 
     sqlCommand = "UPDATE `social_links` SET `linkedin`='"+ linkedin+"',`website`='"+ website+"' WHERE user_id = " + uid +";";
