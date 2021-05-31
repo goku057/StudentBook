@@ -291,6 +291,15 @@ const saveEditWorkForm =  async(uid, pid, title, body, link)=>{
     return result;
 }
 
+const addPayment = async (id, amount) => {
+    let sqlCommand = `SELECT currency FROM user_info WHERE user_id=${id}`;
+    let result = await query(sqlCommand);
+    // console.log(result);
+    let currAmount = result[0].currency;
+    let sqlFinal = `UPDATE user_info SET currency=${currAmount+amount} WHERE user_id=${id}`;
+    let final = await query(sqlFinal);
+}
+
 module.exports = {
     getUserInfo,
     getUserSocialLinks,
@@ -319,7 +328,8 @@ module.exports = {
     getWorkPost,
     saveWorkForm,
     deleteWork,
-    saveEditWorkForm
+    saveEditWorkForm,
+    addPayment
 
 
 }

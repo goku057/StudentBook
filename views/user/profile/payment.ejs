@@ -13,8 +13,17 @@
             <p class="lead text-white">Use the world's easiest payment system to get job done!</p>
             <p>Please use the email that you used in StudentBook</p>
         </div>
+
+        <select onchange="setValue()" name="" id="currency">
+
+            <option value="2500" selected>25$</option>
+            <option value="3000">30$</option>
+            <option value="4000">40$</option>
+            <option value="5000">50$</option>
+        </select>
+
         <form id="payment-form" action="/profile/payment/processFurther">
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            <script id="main-payment" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="pk_test_51Ick4IBNrUQf8H2jQMnfRj7HNyGBmJk6MQqMQSs4LOlqSrtApioGgtxSi5MvqdvGdy4PT1HAIHt4tUvPlxdyENNK00fDiTTBzB"
                 data-amount="2500" data-name="StudentBook Payment">
 
@@ -30,5 +39,12 @@
     </div>
 
 </body>
+
+<script>
+    const setValue = () => {
+        console.log(document.getElementById('currency').value);
+        document.getElementById('main-payment').setAttribute('data-amount', document.getElementById('currency').value);
+    }
+</script>
 
 </html>
