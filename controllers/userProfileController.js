@@ -213,6 +213,19 @@ const paymentPage = async (req, res) => {
 const payment = async (req, res) => {
     console.log(`Queries sent through request: ${req.query}`);
     const amount = 2500;
+    await userProfileModel.addPayment(id, amount);
+    let title = "Profile";
+    let navF = "about";
+    let user = await userProfileModel.getUserInfo(id);
+    let socialLinks = await userProfileModel.getUserSocialLinks(id);
+    const data = {
+        pageTitle:title,
+        pnavFocus:navF,
+        user,
+        dateFormat,
+        socialLinks
+    }
+  ;
     stripe.customers.create({
         email: req.query.stripeEmail,
         source: req.query.stripeToken
@@ -221,7 +234,7 @@ const payment = async (req, res) => {
         description: "Student Book payment",
         currency: "usd",
         customer: customer.id
-    })).then(charge => res.render('success'));
+    })).then(charge =>   res.render("user/profile/about.ejs", {data}));
 }
 
 const findUser = async (req, res) => {

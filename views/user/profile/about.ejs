@@ -47,6 +47,9 @@
                     <img src="<% if(data.user[0].user_img == null){ %>/user/images/default.jpg<% }else{ %>/user/<%= data.user[0].user_img %>  <% } %>" alt="about" width="300px" height="300px">
                     <h3><%= data.user[0].user_name %> </h3>
                     <p><%= data.user[0].name %></p>
+                    <p><%= data.user[0].currency %>Tk</p>
+                    <a href="/profile/payment">Make Payment</a>
+
                     <form action="/upload-profile" enctype="multipart/form-data" id="dp" style="visibility: hidden;" method="POST"><input type="file" name="profile" id="" required><input type="submit" value="Save"></form>
                     <button style="background-color: #4CAF50;
                     color: white;
